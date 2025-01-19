@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 00:45:35 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/18 23:19:26 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:00:09 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Contact
 		std::string nick_name;
 		std::string number_phone;
 		std::string darkest_secret;
-		int index;
 	public:
 		void fname(std::string name){first_name = name;}
 		void lname(std::string name){last_name = name;}
@@ -45,15 +44,35 @@ class PhoneBook
 		Contact con[8];
 		int index;
 		int count;
+		
 		int ft_strlen(std::string str){int i = 0;while(str[i])i++;return ( i);}
+		
 		void ft_print_str(std::string str)
 		{
-			int i = 0;
 			
 			if (ft_strlen(str) > 10)
 				std::cout <<std::setw(10)<<(str.substr(0, 9) + ".");
 			else
 				std::cout <<std::setw(10)<<str;
+		}
+		
+		int ft_atoi(std::string str)
+		{
+			int result = 0;
+			int signe = 1;
+			int i = 0;
+			
+			while (str[i] >= 9 && str[i] <= 32)
+				i++;
+			if (str[i] == '-' || str[i] == '+')
+			{
+				if (str[i] == '-')
+					signe *= 1;
+				i++;
+			}
+			while ((str[i] >= '0' && str[i] <= '9'))
+				result = result * 10 + (str[i++] - '0');
+			return (result * signe);
 		}
 	
 	public:
@@ -67,7 +86,7 @@ class PhoneBook
 			}
 			else if (count >= 7)
 			{
-				index = 8;
+				index = 7;
 				count = 0;
 			}
 		}
@@ -87,23 +106,62 @@ class PhoneBook
 		
 		void ft_display(void)
 		{
+			std::string str;
+			
 			std::cout << "      *----------*----------*----------*----------*\n";
-			std::cout << "      |   Index  |First_name|Last_name |Nick_name |\n";
+			std::cout << "      |          *<<    PHONE BOOK   >>*          |\n";
+			std::cout << "      *----------*----------*----------*----------*\n";
+			std::cout << "      |     Index|First_name| Last_name| Nick_name|\n";
 			std::cout << "      *----------*----------*----------*----------*\n";
 			int i = 0;
-			while (i < index)
+			while (i < index && i < 8)
 			{
 				std::cout << "      |"<<std::setw(10) <<i + 1<<"|";
-				ft_print_str(set_fname(i % 7));
-				std::cout<<"|";
-				ft_print_str(set_lname(i % 7));
-				std::cout <<"|";
-				ft_print_str(set_nname(i % 7));
-				std::cout <<"|\n";
+				ft_print_str(set_fname(i)), std::cout<<"|";
+				ft_print_str(set_lname(i)), std::cout <<"|";
+				ft_print_str(set_nname(i)), std::cout <<"|\n";
 				std::cout << "      *----------*----------*----------*----------*\n";
 				i++;
 			}
-			std::cout <<std::endl;
+			if (index == 0)
+			{
+				std::cout <<"                   !EMPTY PHONE BOOK!\n";
+				return ;
+			}
+			std::cout <<std::endl<<"*ENTER AN INDEX FROM (1 TO 8):\n> "; 
+			std::getline(std::cin, str);
+			std::cout <<"\n";
+			if (str[0] == '\0')
+				return ;
+			int j = 0;
+			int result = 0;
+			
+			while (str[j])
+			{
+				if(!(str[j] >= '0' && str[j] <= '9') && !(str[j] >= 9 &&  str[j] <= 32) && (str[0] != '+'))
+				{
+					std::cout <<"Invalid index: > \"" << str<< "\"\n";
+					return ;
+				}
+				else if (str[1] == '+')	
+				{
+					std::cout <<"Invalid index: > \"" << str<< "\"\n";
+					return ;
+				}
+				j++;
+			}
+			result = ft_atoi(str);
+			if (result <= index && result > 0 && result <= 8)
+			{
+				std::cout <<"->First_name   : "<<set_fname(result - 1) << "\n\n";
+				std::cout <<"->Last_name    : "<<set_lname(result - 1) << "\n\n";
+				std::cout <<"->Nick_name    : "<<set_nname(result - 1) << "\n\n";
+				std::cout <<"->Phone_number : "<<set_nph(result - 1) << "\n\n";
+				std::cout <<"->Dark_secret  : "<<set_d_sec(result - 1) << "\n";
+				std::cout <<std::endl;
+			}
+			else
+				std::cout <<"There is no contact memeber for the index: " << str << "\n";
 		}
 };
 

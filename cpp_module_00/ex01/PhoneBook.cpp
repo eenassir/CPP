@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:33:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/18 15:59:58 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/01/19 22:05:43 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,31 @@ int ft_strlen(char *s)
 	return (i);
 }
 
-int main(int ac, char **av)
+void f()
+{
+	system("leaks PhoneBook");
+}
+
+int main()
 {
 	PhoneBook phone;
 	std::string str;
 	
-	
-	std::cout << "Hello user: the expected commands to add a contact are: ADD, SEARCH, EXIT" << std::endl;
+	std::cout <<"*-------------------------------------------------*\n";
+	std::cout <<"|         PHONE BOOK COMMANDS MANUAL              |\n";
+	std::cout <<"*--------*----------------------------------------*\n";
+	std::cout <<"| ADD    | -for add a conatct                     |\n";
+	std::cout <<"*--------*----------------------------------------*\n";
+	std::cout <<"| SEARCH | -for searching and showing the contacts|\n";
+	std::cout <<"*--------*----------------------------------------*\n";
+	std::cout <<"| EXIT   | -for exiting the programme             |\n";
+	std::cout <<"*--------*----------------------------------------*\n";
+	std::cout << "  ENTER A COMMAND: <ADD>/<SEARCH>/<EXIT> \n> ";
 	while ((std::getline(std::cin, str)))
 	{
 		if (ft_strcmp(str, "ADD", 4) == 0)
 		{
-			std::cout << phone.gg();
+			std::cout <<"------------------------------------------------------------------------------";
 			std::cout << "\nEntre the first_name:\n> ";
 			std::getline(std::cin, str);
 			phone.get_fname(str);
@@ -61,12 +74,20 @@ int main(int ac, char **av)
 			std::cout << "\nEntre the darkest_secret:\n> ";
 			std::getline(std::cin, str);
 			phone.get_d_sec(str);
-			std::cout <<std::endl;
+			std::cout <<"------------------------------------------------------------------------------\n";
 			phone.ft_index();
 		}
 		else if (ft_strcmp(str, "SEARCH", 7) == 0)
+		{
+			std::cout <<"------------------------------------------------------------------------------\n";
 			phone.ft_display();
+			std::cout <<"------------------------------------------------------------------------------\n";	
+		}
 		else if (ft_strcmp(str, "EXIT", 5) == 0)
-			break ;
+			break ;	
+		else
+			std::cout <<"INVALID INPUT COMMAND!!\n";
+		std::cout << "ENTER A COMMAND: <ADD>/<SEARCH>/<EXIT> \n> ";
 	}
+	return (0);
 }

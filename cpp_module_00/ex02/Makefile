@@ -1,6 +1,6 @@
-NAME =   
+NAME =   Account
 
-SRC =    
+SRC =    Account.cpp
 
 OBJ =    $(SRC:.cpp=.o)
 
