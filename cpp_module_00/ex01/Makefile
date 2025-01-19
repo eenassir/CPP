@@ -6,13 +6,13 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CFLAGS = -fsanitize=address -g -std=c++98 -Wall -Wextra -Werror 
+CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 
 all:$(NAME)
 $(NAME):$(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp  classes.hpp header.h
+%.o: %.cpp  classes.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

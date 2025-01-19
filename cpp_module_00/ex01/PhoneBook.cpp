@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:33:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/07 13:00:01 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:59:58 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,54 +30,43 @@ int ft_strlen(char *s)
 	return (i);
 }
 
-void f()
-{
-	system ("leaks PhoneBook");
-}
-
 int main(int ac, char **av)
 {
 	PhoneBook phone;
 	std::string str;
 	
 	
-	std::cout << "\033[30;45mHello user: the expected commands to add a contact are: ADD, SEARCH, EXIT\033[0m" << std::endl;
+	std::cout << "Hello user: the expected commands to add a contact are: ADD, SEARCH, EXIT" << std::endl;
 	while ((std::getline(std::cin, str)))
 	{
 		if (ft_strcmp(str, "ADD", 4) == 0)
 		{
-			phone.ft_index();
 			std::cout << phone.gg();
-			std::cout << "\n\033[31mEntre the first_name:\n>\033[0m ";
+			std::cout << "\nEntre the first_name:\n> ";
 			std::getline(std::cin, str);
 			phone.get_fname(str);
 			
-			std::cout << "\033[32m\nEntre the last_name:\n>\033[0m ";
+			std::cout << "\nEntre the last_name:\n> ";
 			std::getline(std::cin, str);
 			phone.get_lname(str);
 			
-			std::cout << "\033[33m\nEntre the nick_name:\n>\033[0m ";
+			std::cout << "\nEntre the nick_name:\n> ";
 			std::getline(std::cin, str);
 			phone.get_nname(str);
 			
-			std::cout << "\033[34m\nEntre the phone_number:\n>\033[0m ";
+			std::cout << "\nEntre the phone_number:\n> ";
 			std::getline(std::cin, str);
 			phone.get_nph(str);
 			
-			std::cout << "\033[35m\nEntre the darkest_secret:\n>\033[0m ";
+			std::cout << "\nEntre the darkest_secret:\n> ";
 			std::getline(std::cin, str);
 			phone.get_d_sec(str);
 			std::cout <<std::endl;
+			phone.ft_index();
 		}
 		else if (ft_strcmp(str, "SEARCH", 7) == 0)
-		{
 			phone.ft_display();
-		}
 		else if (ft_strcmp(str, "EXIT", 5) == 0)
-		{
 			break ;
-		}
-		// delete(buffer), buffer = NULL;
 	}
-	// delete (buffer), buffer = NULL;
 }
