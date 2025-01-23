@@ -1,18 +1,18 @@
-NAME =   Account
+NAME = Account
 
-SRC =    Account.cpp
+SRC = tests.cpp Account.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -std=c++98 -fsanitize=address -g #-Wall -Wextra -Werror 
 
-all:     $(NAME)
+all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Account.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

@@ -1,0 +1,12 @@
+ex00
+[] newline after message
+ex01
+[] functions shaould be in .cpp files
+[] use upercamel naming
+[] fix the gaurds
+[] fix the overflow
+[] fix empty fields in ADD
+[] std::cout << atoi(str.c_str());
+[] non printable in index and contact infos and tabs
+[] atoi overflow in MAX_UINT
+[] control_D after string
