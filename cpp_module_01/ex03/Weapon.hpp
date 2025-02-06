@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 22:46:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/27 13:15:15 by eenassir         ###   ########.fr       */
+/*   Created: 2025/01/28 10:28:45 by eenassir          #+#    #+#             */
+/*   Updated: 2025/01/29 12:09:56 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-Zombie * newZombie(std::string name)
+#include "Weapon.h"
+
+class Weapon
 {
-	Zombie *new_z = new Zombie();
-	new_z->get_name(name);
-	
-	return (new_z);
-}
+	private:
+		std::string type;
+	public:
+		Weapon(std::string str);
+		std::string const getType(void);
+		void setType(std::string arg);
+};
+
+#endif

@@ -6,14 +6,16 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 09:57:43 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/23 09:26:14 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:46:34 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "Account.hpp"
-#include <cstdbool>
+#include <ctime>
+#include <sstream>
+#include <iomanip>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -55,8 +57,8 @@ Account::~Account(void)
 bool Account::makeWithdrawal(int withrawal)
 {
 	_displayTimestamp();
-	std::cout<<"inedx:"<<_accountIndex<<";";
-	std::cout<<"p_amount"<<_amount<<";";
+	std::cout<<"index:"<<_accountIndex<<";";
+	std::cout<<"p_amount:"<<_amount<<";";
 	std::cout<<"withdrawal:";
 	if (withrawal > _amount)
 	{
@@ -90,7 +92,16 @@ void Account::makeDeposit(int deposit)
 int Account::checkAmount(void) const {return (_amount);}
 void Account::_displayTimestamp(void)
 {
-	std::cout <<"["<<"4444"<<"_"<<"4455"<<"]"<<" ";
+	std::time_t time_now = std::time(nullptr);
+	std::tm* time_local = std::localtime(&time_now);
+	std::ostringstream timestamp;
+	timestamp << std::setfill('0') << (time_local->tm_year + 1900)
+	<< std::setw(2) << (time_local->tm_mon + 1)
+	<< std::setw(2) << (time_local->tm_mday) << "_"
+	<< std::setw(2) << (time_local->tm_hour)
+	<< std::setw(2) << (time_local->tm_min)
+	<< std::setw(2) << (time_local->tm_sec);
+	std::cout << "["<<timestamp.str() <<"] ";
 }
 void Account::displayStatus(void) const
 {

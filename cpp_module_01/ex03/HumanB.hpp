@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 22:46:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/27 13:15:15 by eenassir         ###   ########.fr       */
+/*   Created: 2025/01/28 10:28:56 by eenassir          #+#    #+#             */
+/*   Updated: 2025/01/29 12:58:28 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-Zombie * newZombie(std::string name)
+#include "Weapon.hpp"
+
+class HumanB
 {
-	Zombie *new_z = new Zombie();
-	new_z->get_name(name);
-	
-	return (new_z);
-}
+	private:
+		std::string name;
+		Weapon* mem;
+	public:
+		HumanB(std::string nameB);
+		void setWeapon(Weapon& memB);
+		void attack(void);
+};
+
+#endif

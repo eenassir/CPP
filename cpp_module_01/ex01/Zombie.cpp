@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 22:46:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/27 13:15:15 by eenassir         ###   ########.fr       */
+/*   Created: 2025/01/27 13:23:59 by eenassir          #+#    #+#             */
+/*   Updated: 2025/01/27 15:33:14 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
 
-Zombie * newZombie(std::string name)
+Zombie::~Zombie(void)
 {
-	Zombie *new_z = new Zombie();
-	new_z->get_name(name);
-	
-	return (new_z);
+	std::cout <<"\""<<name<<"\" is destroyed\n";
+}
+void Zombie::announce(void)
+{
+	if (name != "FOO")
+		std::cout <<"<"<<name<<">"<<"BraiiiiiiinnnzzzZ...\n";
+	else
+		std::cout <<name<<"BraiiiiiiinnnzzzZ...\n";
+}
+void Zombie::get_name(std::string na)
+{
+	name = na;
 }

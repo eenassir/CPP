@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 22:46:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/27 13:15:15 by eenassir         ###   ########.fr       */
+/*   Created: 2025/01/27 10:33:14 by eenassir          #+#    #+#             */
+/*   Updated: 2025/01/27 15:33:38 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
 
-Zombie * newZombie(std::string name)
+int main()
 {
-	Zombie *new_z = new Zombie();
-	new_z->get_name(name);
-	
-	return (new_z);
+	Zombie *newZombie;
+	int nbr_zombie = 5;
+
+	newZombie = zombieHorde(5, "Zombie");
+	if (!newZombie)
+		return(std::cout <<"failed to create\n", 1);
+	for (int i = 0; i < nbr_zombie; i++)
+		newZombie[i].announce();
+	delete[] newZombie;
+	return (0);
 }

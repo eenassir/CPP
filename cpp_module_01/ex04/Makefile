@@ -1,26 +1,26 @@
-NAME =   
+NAME=sed_is_for_losers
 
-SRC =    
+SRC= main.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ=$(SRC:.cpp=.o)
 
-CC =     c++
+CC=c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS= -Wall -Wextra -Werror -std=c++98
 
-all:     $(NAME)
-$(NAME): $(OBJ)
+all:$(NAME)
+$(NAME):$(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o:%.cpp Header.h
 	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -rf $(OBJ)
 
-fclean: clean
+fclean:clean
 	rm -rf $(NAME)
 
-re: fclean all
+re:fclean all
 
-.PHONY: clean
+.PHONY:clean

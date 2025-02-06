@@ -1,18 +1,18 @@
-NAME =   
+NAME = Harl_2.0 
 
-SRC =    
+SRC = main.cpp Harl.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all:     $(NAME)
-$(NAME): $(OBJ)
+all:$(NAME)
+$(NAME):$(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Harl.hpp Harl.h 
 	$(CC) $(CFLAGS) -c $<
 
 clean:
