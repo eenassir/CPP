@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:33:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/04 13:43:49 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:12:43 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,21 @@ void ft_display(PhoneBook phone, int index)
 		i++;
 	}
 	if (index == 0)
-		return(void(std::cout <<"                   !EMPTY PHONE BOOK!\n"));
+		return(void(std::cerr <<"                   !EMPTY PHONE BOOK!\n"));
 	(std::cout <<std::endl<<"*ENTER AN INDEX FROM (1 TO 8):\n> ", std::getline(std::cin, str), std::cout <<"\n");
 	if (str[0] == '\0')
 		return (void(std::cout <<"EMPTY FIELD!!!!\n"));
 	while (str[j])
 	{
 		if(!(str[j] >= '0' && str[j] <= '9') && !(str[j] >= 9 &&  str[j] <= 32) && (str[0] != '+'))
-			return (void(std::cout <<"*Invalid index format: > \"" << str<< "\"!\n"));
+			return (void(std::cerr <<"*Invalid index format: > \"" << str<< "\"!\n"));
 		else if (str[1] == '+')	
-			return(void(std::cout <<"*Invalid index format: > \"" << str<< "\"!\n"));
+			return(void(std::cerr <<"*Invalid index format: > \"" << str<< "\"!\n"));
 		j++;
 	}
 	stream.clear();
 	stream << str;
 	stream >> result;
-	// if (!(stream >> result) || !stream.eof())
-	// 	result = -1;
 	if (result - 1 < index && (result >= 1 && result <= 8))
 	{
 		std::cout <<"->First_name   : "<<phone.set_fname1(result - 1) << "\n\n";
@@ -83,7 +81,7 @@ void ft_display(PhoneBook phone, int index)
 		std::cout <<std::endl;
 		return ;
 	}
-	std::cout <<"*There is no contact memeber for the index: " << str << "\n";
+	std::cerr <<"*There is no contact memeber for the index: " << str << "\n";
 }
 
 int is_printable(std::string str)
@@ -104,28 +102,54 @@ int main()
     ft_print_manual();
     while ((std::getline(std::cin, str)))
     {
-		if (is_printable(str) == 1 || std::cin.eof())
+		if (is_printable(str) == 1)
 		{
-			(std::cout <<"\n"<<"INVALID INPUT COMMAND!!\n", std::cout << "ENTER A COMMAND: <ADD>/<SEARCH>/<EXIT> \n> ");
-			continue;
+			(std::cerr <<"\n"<<"INVALID INPUT COMMAND!!\n", std::cout << "ENTER A COMMAND: <ADD>/<SEARCH>/<EXIT> \n> ");
+			continue ;
 		}
+		if (std::cin.eof() == 1)
+			std::cout <<"dsfgdhjsf\n";
         if (str == "ADD" and str.length() == 3)
         {
         	flag = 0;
             std::cout <<"------------------------------------------------------------------------------";
             (std::cout << "\nEntre the first_name:\n> ", std::getline(std::cin, temp_fname), (temp_fname.length() == 0 || is_printable(temp_fname)) && (flag = 1));
+			if (std::cin.eof())
+			{
+				std::cerr <<"EOF\n";
+				break ;
+			}
             (std::cout << "\nEntre the last_name:\n> ", std::getline(std::cin, temp_lname), (temp_lname.length() == 0 || is_printable(temp_lname)) && (flag = 1));
+			if (std::cin.eof())
+			{
+				std::cerr <<"EOF\n";
+				break ;
+			}
             (std::cout << "\nEntre the nick_name:\n> ", std::getline(std::cin, temp_nname), (temp_nname.length() == 0 || is_printable(temp_nname)) && (flag = 1));
+			if (std::cin.eof())
+			{
+				std::cerr <<"EOF\n";
+				break ;
+			}
             (std::cout << "\nEntre the phone_number:\n> ", std::getline(std::cin, temp_phone), (temp_phone.length() == 0 || is_printable(temp_phone)) && (flag = 1));
+			if (std::cin.eof())
+			{
+				std::cout <<"EOF\n";
+				break ;
+			}
             (std::cout << "\nEntre the darkest_secret:\n> ", std::getline(std::cin, temp_secret), (temp_secret.length() == 0 || is_printable(temp_secret)) && (flag = 1));
+			if (std::cin.eof())
+			{
+				std::cerr <<"EOF\n";
+				break ;
+			}
             if (flag == 0)
             {
                 (phone.get_fname1(temp_fname, count), phone.get_lname1(temp_lname, count), phone.get_nname1(temp_nname, count));
 				(phone.get_nph1(temp_phone, count), phone.get_d_sec1(temp_secret, count));
-                if (count >= 7)
-                    count = 0;
-                else
-                    count++, (index < 8) && (index++);
+				count = (count + 1) % 8;
+				if (index < 8)
+					++index;
             }
             std::cout <<"------------------------------------------------------------------------------\n";
         }
@@ -133,12 +157,16 @@ int main()
 		{
 			std::cout <<"------------------------------------------------------------------------------\n";
 			ft_display(phone, index);
+			if (std::cin.eof() == 1)
+				return (std::cerr << "EOF\n", 1);
 			std::cout <<"------------------------------------------------------------------------------\n";
 		}
 		else if (str == "EXIT")
-			break ;	
+			break ;
+		else if (std::cin.eof() == 1)
+			return (std::cerr<<"EOF\n", 1);
 		else
-			std::cout <<"INVALID INPUT COMMAND!!\n";
+			std::cerr <<"INVALID INPUT COMMAND!!\n";
 		std::cout << "ENTER A COMMAND: <ADD>/<SEARCH>/<EXIT> \n> ";
 	}
 	return (0);

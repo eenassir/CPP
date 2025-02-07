@@ -12,7 +12,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp  Classes.hpp
+%.o: %.cpp  Classes.hpp Header.h
 	$(CC) $(CFLAGS) -c $<
 
 clean:
