@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 09:57:43 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/25 13:46:34 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:35:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void Account::makeDeposit(int deposit)
 int Account::checkAmount(void) const {return (_amount);}
 void Account::_displayTimestamp(void)
 {
-	std::time_t time_now = std::time(nullptr);
+	std::time_t time_now = std::time(NULL);
 	std::tm* time_local = std::localtime(&time_now);
 	std::ostringstream timestamp;
 	timestamp << std::setfill('0') << (time_local->tm_year + 1900)
