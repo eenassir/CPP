@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:36:36 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/06 11:19:33 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/08 22:38:57 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void Harl::complain(std::string level)
 	for(int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
-			((mem.*complain[i])());
+			return (((mem.*complain[i])()));
 	}
 }

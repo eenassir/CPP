@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:24:09 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:04 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:10:09 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Zombie *zombieHorde(int N, std::string name)
 {
 	if (N <= 0)
-		return (nullptr);
+		return (NULL);
 	Zombie *zombie = new Zombie[N];
 
 	for (int i = 0; i < N; i++)

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:34:54 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/07 00:36:24 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:02:54 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ class Zombie
 		std::string name;
 	public:
 		~Zombie(void);
+		Zombie(void);
 		void announce(void);
-		void get_name(std::string name);
+		void set_name(std::string name);
 };
 
 #endif
