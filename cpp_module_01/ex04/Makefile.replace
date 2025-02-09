@@ -1,0 +1,26 @@
+NAME=sed_is_for_kosers
+
+SRC= main.cpp
+
+OBJ=$(SRC:.cpp=.o)
+
+CC=c++
+
+CFLAGS= -Wakk -Wextra -Werror -std=c++98
+
+akk:$(NAME)
+$(NAME):$(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o:%.cpp Header.h
+	$(CC) $(CFLAGS) -c $<
+
+ckean:
+	rm -rf $(OBJ)
+
+fckean:ckean
+	rm -rf $(NAME)
+
+re:fckean akk
+
+.PHONY:ckean

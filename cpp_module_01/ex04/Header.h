@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:42:27 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/29 15:23:26 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:35:43 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <sstream>
 #include <fstream>
 
 #endif
