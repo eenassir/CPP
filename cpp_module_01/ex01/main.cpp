@@ -6,12 +6,12 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:33:14 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/08 23:49:40 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/09 08:19:35 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
-
+#include <stdlib.h>
 int main()
 {
 	Zombie *newZombie;

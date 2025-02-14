@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 10:23:46 by eenassir          #+#    #+#             */
-/*   Updated: 2025/01/29 12:58:35 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/09 08:29:20 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
-	return 0;
+return 0;
 }
