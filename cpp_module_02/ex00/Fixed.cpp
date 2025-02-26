@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:35:53 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/25 14:43:58 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/25 23:15:03 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ Fixed::Fixed(const Fixed& mem)
 
 Fixed &Fixed::operator=(const Fixed& mem)
 {
-	std::cout << "Copy assignment operator called\n";
 	if (this == &mem)
 		return *this;
-	this->num_value = mem.getRawBits();
+	std::cout << "Copy assignment operator called\n";
+	this->num_value = mem.num_value;
 	return *this;
 }
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits( void ) const
 {
 	std::cout <<"getRawBits member function called\n";
 	return (num_value);
 }
 
-void Fixed::setRawBites(int const raw)
+void Fixed::setRawBites( int const raw )
 {
 	this->num_value = raw;
 }
