@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:51 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/28 11:54:54 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:49:59 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int main() {
     Point c(0, 10);
 
     Point point(1, 1);
-    std::cout << "Is point inside the triangle? " << (bsp(a, b, c, point) ? "Yes" : "No") << std::endl;
+    std::cout << "Is the point("<< point.getx()<<","<<point.gety()<<") inside the triangle? " << (bsp(a, b, c, point) ? "Yes" : "No") << std::endl;
     Point point2(10, 10);
-    std::cout << "Is point2 inside the triangle? " << (bsp(a, b, c, point2) ? "Yes" : "No") << std::endl;
+    std::cout << "Is the point("<<point2.getx()<<","<<point2.gety()<<") inside the triangle? " << (bsp(a, b, c, point2) ? "Yes" : "No") << std::endl;
     Point point3(0, 0);
-    std::cout << "Is point3 inside the triangle? " << (bsp(a, b, c, point3) ? "Yes" : "No") << std::endl;
+    std::cout << "Is the point("<<point3.getx()<<","<<point3.getx()<<") inside the triangle? " << (bsp(a, b, c, point3) ? "Yes" : "No") << std::endl;
 
     return 0;
 }
