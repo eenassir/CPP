@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:43 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/28 08:08:23 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:48:48 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Fixed &Fixed::operator=(const Fixed &mem)
 {
 	if (*this == mem)
 		return (*this);
-	this->num_value = mem.num_value;
+	this->num_value = mem.getRawBits();
 	return (*this);
 }
 

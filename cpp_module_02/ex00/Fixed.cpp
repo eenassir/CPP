@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:35:53 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/27 00:21:30 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:48:03 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed &Fixed::operator=(const Fixed& mem)
 	if (this == &mem)
 		return *this;
 	std::cout << "Copy assignment operator called\n";
-	this->num_value = mem.num_value;
+	this->num_value = mem.getRawBits();
 	return *this;
 }
 
