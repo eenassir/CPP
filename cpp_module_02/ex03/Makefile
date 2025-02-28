@@ -1,6 +1,6 @@
 NAME = a.out
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Fixed.h Fixed.hpp Point.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

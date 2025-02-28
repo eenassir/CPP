@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:35:53 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/25 23:15:03 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/27 00:21:30 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Fixed::Fixed() : num_value(0)
 	std::cout <<"Default constructor called\n";
 }
 
-Fixed::Fixed(const Fixed& mem)
+Fixed::Fixed(const Fixed &mem)
 {
 	std::cout <<"Copy constructor called\n";
 	*this = mem;

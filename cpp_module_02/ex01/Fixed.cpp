@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 23:38:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/26 14:56:55 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:58:46 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ float Fixed::toFloat( void ) const
 
 int Fixed::toInt( void ) const
 {
-	return (this->num_value / (1 << fractional_bits));
+	return (this->num_value >> fractional_bits);
 }

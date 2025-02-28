@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 23:39:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/25 22:45:02 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:37:42 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ class Fixed
 		static const int fractional_bits = 8;
 	public:
 		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
 		Fixed(const Fixed &mem);
+		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-		~Fixed();
-		Fixed(const int param);
-		Fixed(const float param);
+		
 		float toFloat( void ) const;
 		int toInt( void ) const;
+		
 		Fixed &operator=(const Fixed &mem);
+		
+		~Fixed();
 };
 
 #endif

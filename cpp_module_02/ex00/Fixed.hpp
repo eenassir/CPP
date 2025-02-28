@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:35:50 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/25 15:13:38 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:38:42 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(const Fixed &obj);
-		Fixed &operator=(const Fixed& mem);
+		
 		int getRawBits( void ) const;
 		void setRawBites( int const raw );
+		
+		Fixed &operator=(const Fixed& mem);
+		
 		~Fixed(void);
 };
 
