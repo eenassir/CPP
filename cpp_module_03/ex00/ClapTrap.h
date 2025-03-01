@@ -10,3 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CLAPTRAP_H
+# define CLAPTRAP_H
+
+#include <iostream>
+#include "ClapTrap.hpp"
+#include <sstream>
+
+#endif

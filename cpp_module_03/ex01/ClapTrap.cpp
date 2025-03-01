@@ -10,3 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.h"
+
+ClapTrap::ClapTrap(const std::string name) : Name(name), HitPoints(10), EnergiePoints(10), AttackDamage(0)
+{
+    
+}

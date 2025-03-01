@@ -10,3 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.h"
+
+int main() {
+
+    ClapTrap clap1("HERO1");
+    ClapTrap clap2("HERO2");
+
+    clap1.attack("HERO2");
+    clap2.takeDamage(5);
+    clap2.beRepaired(3);
+    clap1.takeDamage(5);
+    clap1.attack("HERO2");
+    clap2.attack("HERO1");
+
+    return 0;
+}
