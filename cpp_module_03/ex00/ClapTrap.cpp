@@ -6,13 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:24 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:37:57 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:34:29 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-ClapTrap::ClapTrap(){}
+ClapTrap::ClapTrap() HitPoints(10), EnergiePoints(10), AttackDamage(0) {}
 
 ClapTrap::ClapTrap(const std::string &_name) : Name(_name), HitPoints(10), EnergiePoints(10), AttackDamage(0)
 {

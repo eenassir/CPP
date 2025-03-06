@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:24:20 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 03:35:25 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:31:47 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
+	HitPoints = 100;
+	EnergiePoints = 100;
+	AttackDamage = 30;
 }
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name)

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 01:39:01 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:33:35 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+	HitPoints = 100;
+	EnergiePoints = 50;
+	AttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
