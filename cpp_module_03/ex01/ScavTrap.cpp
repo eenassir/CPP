@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 00:19:54 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:41:56 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 	std::cout <<"ScavTrap "<<this->Name<<" is created!"<<std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &mem)
+ScavTrap::ScavTrap(const ScavTrap &mem) : ClapTrap(mem)
 {
 	*this = mem;
 }
@@ -41,7 +41,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &mem)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout <<"ScavTrap "<<Name<<" is destroyed\n" ;
+	std::cout <<"ScavTrap "<<Name<<" is destroyed!\n" ;
 }
 
 void ScavTrap::attack(const std::string &target)

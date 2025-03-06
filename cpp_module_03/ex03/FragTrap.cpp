@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:24:20 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 22:28:55 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:48:36 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 	std::cout <<"FragTrap "<<this->_name<<" is created!"<<std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &mem)
+FragTrap::FragTrap(const FragTrap &mem) : ClapTrap(mem)
 {
 	*this = mem;
 }

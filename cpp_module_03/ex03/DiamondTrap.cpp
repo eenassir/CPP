@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:51:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 22:34:21 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:48:22 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(const std::string &_name) : ClapTrap(_name + "_clap_nam
 	_attackDamage = 30;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &mem)
+DiamondTrap::DiamondTrap(const DiamondTrap &mem) : ClapTrap(mem), ScavTrap(mem), FragTrap(mem)
 {
 	*this = mem;
 }
