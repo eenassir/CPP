@@ -6,7 +6,26 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:10 by eenassir          #+#    #+#             */
-/*   Updated: 2025/02/14 00:22:11 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 01:39:21 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
+#include "ClapTrap.h"
+
+class ScavTrap : public ClapTrap
+{
+	public:
+		ScavTrap();
+		ScavTrap(const std::string &name);
+		ScavTrap(const ScavTrap &mem);
+		ScavTrap &operator=(const ScavTrap &mem);
+		~ScavTrap();
+
+		void attack(const std::string &target);
+		void guardGate();
+};
+
+#endif

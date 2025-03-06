@@ -1,18 +1,18 @@
 NAME = a.out
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FlagTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp ClapTrap.h ClapTrap.hpp ScavTrap.h ScavTrap.hpp FlagTrap.h FlagTrap.hpp
+%.o: %.cpp ClapTrap.h ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:
