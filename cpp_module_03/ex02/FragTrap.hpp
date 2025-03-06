@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:24:26 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 01:50:22 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:19:53 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ class FragTrap : public ClapTrap
 {
 	public:
 		FragTrap();
-		FragTrap(const std::string &name);
+		FragTrap (const FragTrap &mem);
 		FragTrap &operator=(const FragTrap &mem);
 		~FragTrap();
-		FragTrap (const FragTrap &mem);
+		
+		FragTrap(const std::string &name);
+		
 		void highFivesGuys(void);
 };
 

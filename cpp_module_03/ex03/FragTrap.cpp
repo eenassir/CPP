@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:24:20 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:20:21 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 03:35:25 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 	HitPoints = 100;
 	EnergiePoints = 100;
 	AttackDamage = 30;
-	std::cout <<"FragTrap "<<this->Name<<" is created!"<<std::endl;
+	std::cout <<"FragTrap "<<this->_name<<" is created!"<<std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &mem)
@@ -32,7 +32,7 @@ FragTrap &FragTrap::operator=(const FragTrap &mem)
 {
 	if (this == &mem)
 		return (*this);
-	this->Name = mem.Name;
+	this->_name = mem._name;
 	this->HitPoints = mem.HitPoints;
 	this->EnergiePoints = mem.EnergiePoints;
 	this->AttackDamage = mem.AttackDamage;
@@ -41,7 +41,7 @@ FragTrap &FragTrap::operator=(const FragTrap &mem)
 
 FragTrap::~FragTrap()
 {
-	std::cout <<"FragTrap "<<Name<<" is destroyed"<<std::endl ;
+	std::cout <<"FragTrap "<<_name<<" is destroyed!"<<std::endl ;
 }
 
 void FragTrap::highFivesGuys()

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:21:58 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/01 22:21:37 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:19:15 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CLAPTRAP_H
 
 #include <iostream>
-#include <sstream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
