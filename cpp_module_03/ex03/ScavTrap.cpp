@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 18:31:36 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:30:49 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	HitPoints = 100;
-	EnergiePoints = 50;
-	AttackDamage = 20;
-	save = 50;
+	_hitPoints = 100;
+	_energiePoints = 50;
+	_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
-	HitPoints = 100;
-	EnergiePoints = 50;
-	AttackDamage = 20;
-	save = 50;
+	_hitPoints = 100;
+	_energiePoints = 50;
+	_attackDamage = 20;
 	std::cout <<"ScavTrap "<<this->_name<<" is created!"<<std::endl;
 }
 
@@ -38,9 +36,9 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &mem)
 	if (this == &mem)
 		return (*this);
 	this->_name = mem._name;
-	this->HitPoints = mem.HitPoints;
-	this->EnergiePoints = mem.EnergiePoints;
-	this->AttackDamage = mem.AttackDamage;
+	this->_hitPoints = mem._hitPoints;
+	this->_energiePoints = mem._energiePoints;
+	this->_attackDamage = mem._attackDamage;
 	return (*this);
 }
 
@@ -51,12 +49,12 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string &target)
 {
-	if (HitPoints > 0 && EnergiePoints > 0)
+	if (_hitPoints > 0 && _energiePoints > 0)
 	{
-		EnergiePoints--;
-		std::cout <<"ScavTrap "<<_name<<" attacks "<<target<<", causing "<<AttackDamage<<" points of damage!"<<std::endl;
+		_energiePoints--;
+		std::cout <<"ScavTrap "<<_name<<" attacks "<<target<<", causing "<<_attackDamage<<" points of damage!"<<std::endl;
 	}
-	else if ((int)EnergiePoints <= 0)
+	else if ((int)_energiePoints <= 0)
 		std::cout << "ScavTrap "<<_name<<" cannot attack because it have no energie points"<< std::endl;
 }
 

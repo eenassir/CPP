@@ -6,20 +6,25 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:51:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 18:33:20 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:34:21 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-DiamondTrap::DiamondTrap() : ClapTrap() {}
+DiamondTrap::DiamondTrap() : ClapTrap()
+{
+	_hitPoints = 100;
+	_energiePoints = 50;
+	_attackDamage = 30;
+}
 
 DiamondTrap::DiamondTrap(const std::string &_name) : ClapTrap(_name + "_clap_name"), ScavTrap(), FragTrap(), _name(_name)
 {
 	std::cout <<"DiamondTrap "<<_name<<" is created"<<std::endl;
-	HitPoints = FragTrap::HitPoints;
-	EnergiePoints = ScavTrap::save;
-	AttackDamage = FragTrap::AttackDamage;
+	_hitPoints = 100;
+	_energiePoints = 50;
+	_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &mem)
@@ -32,9 +37,9 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &mem)
 	if (this == &mem)
 		return (*this);
 	this->_name = mem._name;
-	this->HitPoints = mem.HitPoints;
-	this->EnergiePoints = mem.EnergiePoints;
-	this->AttackDamage = mem.AttackDamage;
+	this->_hitPoints = mem._hitPoints;
+	this->_energiePoints = mem._energiePoints;
+	this->_attackDamage = mem._attackDamage;
 	return (*this);
 }
 

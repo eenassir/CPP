@@ -6,13 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:21:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 18:34:19 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:17:28 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-ClapTrap::ClapTrap() HitPoints(10), EnergiePoints(10), AttackDamage(0) {}
+ClapTrap::ClapTrap() : HitPoints(10), EnergiePoints(10), AttackDamage(0) {}
 
 ClapTrap::ClapTrap(const std::string &_name) : Name(_name), HitPoints(10), EnergiePoints(10), AttackDamage(0)
 {
@@ -52,7 +52,7 @@ void ClapTrap::attack(const std::string &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (HitPoints > 0)
+	if ((int)(HitPoints - amount) >= 0)
 	{
 		HitPoints -= amount;
 		AttackDamage = amount;

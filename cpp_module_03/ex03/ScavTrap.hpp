@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:10 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 18:24:02 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:29:26 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-	protected:
-		int save;
 	public:
 		ScavTrap();
 		ScavTrap(const ScavTrap &mem);
