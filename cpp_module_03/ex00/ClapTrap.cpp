@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:24 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 23:45:54 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 00:31:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(const std::string &_name) : _name(_name), _hitPoints(10), _en
 {
 	std::cout <<"ClapTrap "<<this->_name<<" is created!"<<std::endl;
 }
-ClapTrap::ClapTrap(const ClapTrap &mem)
+ClapTrap::ClapTrap(const ClapTrap &mem) : ClapTrap(mem)
 {
 	*this = mem;
 }

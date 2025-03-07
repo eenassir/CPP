@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 22:21:45 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 00:33:48 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 	std::cout <<"ScavTrap "<<this->_name<<" is created!"<<std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &mem)
+ScavTrap::ScavTrap(const ScavTrap &mem) : ClapTrap(mem)
 {
 	*this = mem;
 }
