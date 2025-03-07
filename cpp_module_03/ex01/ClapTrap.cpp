@@ -6,13 +6,16 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:21:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 23:47:25 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:59:35 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-ClapTrap::ClapTrap() : _hitPoints(10), _energiePoints(10), _attackDamage(0) {}
+ClapTrap::ClapTrap() : _name("Clap_default"), _hitPoints(10), _energiePoints(10), _attackDamage(0)
+{
+	std::cout <<"The ClapTrap default constructor is called"<<std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string &_name) : _name(_name), _hitPoints(10), _energiePoints(10), _attackDamage(0)
 {
@@ -20,6 +23,7 @@ ClapTrap::ClapTrap(const std::string &_name) : _name(_name), _hitPoints(10), _en
 }
 ClapTrap::ClapTrap(const ClapTrap &mem)
 {
+	std::cout <<"The  ClapTrap copy constructor is called"<<std::endl;
 	*this = mem;
 }
 

@@ -6,21 +6,25 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:21:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 22:26:44 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:05:45 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-ClapTrap::ClapTrap() :_hitPoints(10), _energiePoints(10), _attackDamage(0){}
+ClapTrap::ClapTrap() : _name("Clap_default"), _hitPoints(10), _energiePoints(10), _attackDamage(0), _copy_energiePoints(0)
+{
+	std::cout <<"The ClapTrap default constructor is called"<<std::endl;
+}
 
-ClapTrap::ClapTrap(const std::string &_name) : _name(_name), _hitPoints(10), _energiePoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(const std::string &_name) : _name(_name), _hitPoints(10), _energiePoints(10), _attackDamage(0), _copy_energiePoints(0)
 {
 	std::cout <<"ClapTrap "<<this->_name<<" is created!"<<std::endl;
 }
 ClapTrap::ClapTrap(const ClapTrap &mem)
 {
 	*this = mem;
+	std::cout <<"The ClapTrap copy constructor is called"<<std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &mem)
@@ -31,6 +35,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &mem)
 	this->_hitPoints = mem._hitPoints;
 	this->_energiePoints = mem._energiePoints;
 	this->_attackDamage = mem._attackDamage;
+	this->_copy_energiePoints = mem._copy_energiePoints;
 	return (*this);
 }
 

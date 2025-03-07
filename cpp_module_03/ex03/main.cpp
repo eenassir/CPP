@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/07 00:45:15 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:08:11 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 int main()
 {
-    DiamondTrap scav1("Hero1");
-    DiamondTrap scav2("Hero2");
+    DiamondTrap diamond1;
+    DiamondTrap diamond2("Hero2");
 
-    scav1.attack("Hero1");
-    scav1.takeDamage(30);
-    scav1.beRepaired(20);
-	scav1.guardGate();
-    scav1.highFivesGuys();
-    scav1.whoAmI();
+    diamond2.takeDamage(4);
 
-    scav2.attack("Hero2");
-    scav2.takeDamage(1);
-    scav2.beRepaired(10);
-	scav2.guardGate();
-    scav2.highFivesGuys();
+    DiamondTrap diamond3( diamond2 );
+
+    diamond3.attack("Hero1");
+
+    diamond3.guardGate();
+    diamond3.highFivesGuys();
+    return (0);
 }

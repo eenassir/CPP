@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:00 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/06 22:25:32 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:34:26 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ClapTrap
         unsigned int _hitPoints;
         unsigned int _energiePoints;
         unsigned int _attackDamage;
+        unsigned int _copy_energiePoints;
     public:
         ClapTrap();
         ClapTrap(const ClapTrap &mem);
