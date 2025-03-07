@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:21:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/07 14:59:35 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:46:14 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &mem)
 	this->_hitPoints = mem._hitPoints;
 	this->_energiePoints = mem._energiePoints;
 	this->_attackDamage = mem._attackDamage;
+	std::cout <<"The ClapTrap copy assignement is called"<<std::endl;
 	return (*this);
 }
 

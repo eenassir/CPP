@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:51:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/07 15:29:40 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:45:39 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &mem)
 	this->_hitPoints = mem._hitPoints;
 	this->_energiePoints = mem._energiePoints;
 	this->_attackDamage = mem._attackDamage;
+	std::cout <<"The DiamondTrap copy assignement is called"<<std::endl;
 	return (*this);
 }
 
