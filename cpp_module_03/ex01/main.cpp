@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/08 00:53:04 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:13:22 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main()
 
     scav1.beRepaired(2);
     scav3.beRepaired(3);
+    scav1.guardGate();
 
     scav3.attack("Hero1");
 

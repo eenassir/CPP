@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/08 00:53:44 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:13:54 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
     FragTrap frag3(frag2);
 
     frag3.beRepaired(5);
+    frag1.highFivesGuys();
 
     frag3.attack("Hero1");
     return 0;
