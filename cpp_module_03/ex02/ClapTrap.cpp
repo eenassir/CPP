@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:21:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/07 15:46:48 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:53:32 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ ClapTrap::ClapTrap(const std::string &_name) : _name(_name), _hitPoints(10), _en
 }
 ClapTrap::ClapTrap(const ClapTrap &mem)
 {
-	*this = mem;
 	std::cout <<"The ClapTrap copy constructor is called"<<std::endl;
+	*this = mem;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &mem)

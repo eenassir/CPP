@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/07 15:05:08 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/08 00:45:05 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 
     frag2.takeDamage(5);
 
-    FragTrap frag3( frag2);
+    FragTrap frag3(frag2);
 
     frag3.beRepaired(5);
 
