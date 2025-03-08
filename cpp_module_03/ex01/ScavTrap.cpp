@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:22:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/08 00:25:26 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/08 00:54:29 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ ScavTrap::ScavTrap(const ScavTrap &mem) : ClapTrap(mem)
 	std::cout <<"The ScavTrap copy constructor is called"<<std::endl;
 	*this = mem;
 }
+
 ScavTrap &ScavTrap::operator=(const ScavTrap &mem)
 {
 	if (this == &mem)
