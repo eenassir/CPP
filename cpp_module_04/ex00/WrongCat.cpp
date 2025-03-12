@@ -1,48 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 07:48:20 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 02:23:18 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/11 02:25:49 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/11 02:54:11 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.h"
 
-Animal::Animal() : type("Animal_def")
+WrongCat::WrongCat()
 {
-	std::cout <<"The Animal_default constructor called" <<std::endl;
+	std::cout <<"The WrongCat_default constructor called"<<std::endl;
+	type = "WrongCat";
 }
 
-Animal::Animal(const Animal &mem)
+WrongCat::WrongCat(const WrongCat &mem)
 {
-	std::cout <<"The Animal copy constructor called" <<std::endl;
+	std::cout <<"The WrongCat copy constructor called"<<std::endl;
 	*this = mem;
 }
 
-Animal &Animal::operator=(const Animal &mem)
+WrongCat &WrongCat::operator=(const WrongCat &mem)
 {
 	if (this == &mem)
 		return (*this);
+	std::cout <<"The WrongCat copy assignement called"<<std::endl;
 	this->type = mem.type;
-	std::cout <<"The Animal copy assignement called"<<std::endl;
 	return (*this);
 }
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-	std::cout <<"The Animal destructor called" <<std::endl;
+	std::cout <<"The WrongCat destructor called"<<std::endl;
 }
 
-void Animal::makeSound(void) const
+void WrongCat::makeSound() const
 {
-	std::cout <<"* Generic animal sound *"<<std::endl;
-}
-
-std::string Animal::getType() const
-{
-	return (type);
+	std::cout <<"wrong meow wrong meow"<<std::endl;	
 }

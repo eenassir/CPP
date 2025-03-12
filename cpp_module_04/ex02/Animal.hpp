@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 07:48:26 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 02:17:23 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:36:42 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
 		virtual ~Animal();
 
 		
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 		std::string getType(void) const;
 };
 

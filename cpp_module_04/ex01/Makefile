@@ -1,18 +1,18 @@
-NAME = 
+NAME = Animal
 
-SRC = main.cpp Animal.cpp Brain.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC =  c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-all:     $(NAME)
+all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Animal.hpp Animal.h Brain.hpp Brain.h 
+%.o: %.cpp Animal.h Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

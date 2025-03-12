@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 07:48:29 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:27:58 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:35:05 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@ int main() {
     {
         const Animal* j = new Dog();
         const Animal* i = new Cat();
-        const Animal* meta = new Animal();
         
         std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
         i->makeSound();
-        j->makeSound();
-        meta->makeSound();
-        
-        delete meta;
         delete j;
         delete i;
     }
@@ -55,10 +50,10 @@ int main() {
             else
                 animals[i] = new Cat();
         }
+        
         for (int i = 0; i < count; i++) {
             delete animals[i];
         }
     }
-    
     return 0;
 }
