@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:01:39 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 02:18:09 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:44:28 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat() : Animal()
 	type = "Cat"; 
 }
 
-Cat::Cat(const Cat &mem)
+Cat::Cat(const Cat &mem) : Animal()
 {
 	std::cout <<"The Cat copy constructor is called"<<std::endl;
 	*this = mem;

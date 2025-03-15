@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 08:26:02 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:04:07 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/12 22:55:03 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/13 01:07:08 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-#include "Animal.h"
+#include "AMateria.hpp"
 
-class Brain
+class ICharacter
 {
-	protected:
-		std::string ideas[100];
 	public:
-		Brain();
-		Brain(const Brain &mem);
-		Brain &operator=(const Brain &mem);
-		~Brain();
-
-		std::string getIdea(int idea) const;
-		void setIdea(int index, const std::string &idea);
-}; 
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria *m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+};
 
 #endif

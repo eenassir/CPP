@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 02:25:49 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 02:54:11 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:48:19 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ WrongCat::WrongCat()
 	type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat &mem)
+WrongCat::WrongCat(const WrongCat &mem) : WrongAnimal()
 {
 	std::cout <<"The WrongCat copy constructor called"<<std::endl;
 	*this = mem;

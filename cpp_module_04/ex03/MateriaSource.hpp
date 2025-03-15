@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 07:48:23 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 00:54:43 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/13 01:29:42 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/13 01:37:24 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <iostream>
-# include "Animal.hpp"
-# include "Brain.hpp"
-# include "Dog.hpp"
-# include "Cat.hpp"
-# include "WrongAnimal.hpp"
-# include "WrongCat.hpp"
+#include "AMateria.hpp"
 
-# endif
+class MateriaSource : public IMateriaSource
+{
+	public:
+		void learnMateria(AMateria *materia);
+		AMateria* createMateria(std::string const &type);
+};
+
+#endif

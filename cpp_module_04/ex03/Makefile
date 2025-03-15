@@ -1,6 +1,6 @@
 NAME = Animal
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+SRC = main.cpp AMateria.cpp ICharacter.cpp IMateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Animal.h Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+%.o: %.cpp AMateria.hpp ICharacter.hpp IMateriaSource.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

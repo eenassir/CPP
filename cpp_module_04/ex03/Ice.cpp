@@ -1,44 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/09 16:01:18 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:44:40 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/13 00:37:47 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/15 17:19:55 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.h"
+#include "AMateria.hpp"
 
-Dog::Dog() : Animal()
+Ice::Ice()
 {
-	type = "Dog";
-	std::cout <<"The Dog_default constructor is called" <<std::endl;
+	this->type = "ice";
 }
 
-Dog::Dog(const Dog &mem) : Animal()
+Ice::Ice(const Ice &mem)
 {
-	std::cout <<"The Dog copy constructor called"<<std::endl;
 	*this = mem;
 }
 
-Dog &Dog::operator=(const Dog &mem)
+Ice &Ice::operator=(const Ice &mem)
 {
 	if (this == &mem)
 		return (*this);
 	this->type = mem.type;
-	std::cout <<"The Dog copy assignemet called"<<std::endl;
-	return (*this);
+	return (*this);	
 }
 
-Dog::~Dog()
+Ice::~Ice(){}
+
+Ice::Ice(const std::string &type)
 {
-	std::cout <<"The Dog destructor is called"<<std::endl;
+	this->type = type;
 }
 
-void Dog::makeSound() const
+AMateria *Ice::clone() const
 {
-	std::cout <<"woof woof"<<std::endl;
+	AMateria *mem = new(Ice);
+	return (mem);
+}
+
+void Ice::use(ICharacter &target)
+{
+	std::cout <<"* heals "<<target.getName()<<"'s wounds *"<<std::endl;
 }

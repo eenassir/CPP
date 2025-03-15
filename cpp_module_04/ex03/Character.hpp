@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 07:48:26 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 02:17:23 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/13 01:27:26 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/15 17:41:44 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-#include "Animal.h"
+#include "AMateria.hpp"
 
-class Animal
+class Character : public ICharacter
 {
-	protected:
-		std::string type;
+	private:
+		AMateria *slot[4];
+		AMateria *save_slot[4];
 	public:
-		Animal();
-		Animal(const Animal &mem);
-		Animal &operator=(const Animal &mem);
-		virtual ~Animal();
-
-		
-		virtual void makeSound() const;
-		std::string getType(void) const;
+		Character();
+		Character(const Character &mem);
+		Character &operator=(const Character &mem);
+		std::string const & getName() const;
+		std::string const & getType() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 };
 
 #endif

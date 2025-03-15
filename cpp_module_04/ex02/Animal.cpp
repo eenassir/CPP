@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 07:48:20 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 02:23:18 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/12 21:38:50 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ Animal::~Animal()
 	std::cout <<"The Animal destructor called" <<std::endl;
 }
 
-void Animal::makeSound(void) const
-{
-	std::cout <<"* Generic animal sound *"<<std::endl;
-}
 
 std::string Animal::getType() const
 {

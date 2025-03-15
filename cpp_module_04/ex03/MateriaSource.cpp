@@ -1,33 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/09 16:01:35 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:16:45 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/13 01:29:24 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/13 01:29:38 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  CAT_HPP
-# define CAT_HPP
-
-#include "Animal.h"
-
-class Cat : public Animal
-{
-	private:
-		Brain *ptr;
-	public:
-		Cat();
-		Cat(const Cat &mem);
-		Cat &operator=(const Cat &mem);
-		~Cat();
-		
-		void makeSound() const;
-		Brain *getBrain() const;
-};
-
-#endif
+#include "AMateria.hpp"
 
