@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 02:25:52 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/18 01:16:02 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/18 15:46:08 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/18 15:49:15 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-#include "Animal.h"
+#include <iostream>
 
-class WrongAnimal
+class Bureaucrat
 {
-	protected:
-		std::string type;
-	public:
-		WrongAnimal();
-		WrongAnimal(const WrongAnimal &mem);
-		WrongAnimal &operator=(const WrongAnimal &mem);
-		~WrongAnimal();
-
-		std::string getType(void) const;
-		void makeSound() const;
+	privaet:
+		std::string const name;
+	Public:
 		
 };
 
-#endif
+# endif
