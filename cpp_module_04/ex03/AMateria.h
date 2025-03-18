@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   AMateria.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 22:55:08 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/17 15:46:00 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/17 15:43:29 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/17 15:55:49 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-# define IMATERIASOURCE_HPP
+# ifndef AMATERIA_H
+# define AMATERIA_H
 
-#include "AMateria.h"
+#include <iostream>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
-class IMateriaSource
-{
-	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
-};
-
-#endif
+# endif

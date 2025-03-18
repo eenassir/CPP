@@ -6,11 +6,11 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:35:53 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/15 17:37:44 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:14:53 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "AMateria.h"
 
 Cure::Cure()
 {
@@ -45,6 +45,6 @@ AMateria *Cure::clone() const
 
 void Cure::use(ICharacter &target)
 {
-	std::cout <<"* shoots an ice bolt at "<<target.getName()<<std::endl;
+	std::cout <<"* heals "<<target.getName()<<"'s wounds *"<<std::endl;
 }
 

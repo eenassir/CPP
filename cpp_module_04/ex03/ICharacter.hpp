@@ -6,14 +6,14 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 22:55:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/13 01:07:08 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:46:04 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-#include "AMateria.hpp"
+#include "AMateria.h"
 
 class ICharacter
 {

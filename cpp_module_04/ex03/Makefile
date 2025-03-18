@@ -1,12 +1,12 @@
-NAME = Animal
+NAME = prog
 
-SRC = main.cpp AMateria.cpp ICharacter.cpp IMateriaSource.cpp
+SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
 CC =  c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -std=c++98  #-fsanitize=address -g #-Wall -Wextra -Werror
 
 all: $(NAME)
 $(NAME): $(OBJ)

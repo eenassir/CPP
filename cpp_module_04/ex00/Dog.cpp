@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:01:18 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:44:40 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:14:51 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 Dog::Dog() : Animal()
 {
-	type = "Dog";
 	std::cout <<"The Dog_default constructor is called" <<std::endl;
+	type = "Dog";
 }
 
 Dog::Dog(const Dog &mem) : Animal()

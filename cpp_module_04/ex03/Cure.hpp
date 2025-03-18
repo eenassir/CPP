@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:35:58 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/15 17:39:56 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:41:02 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cure : public AMateria
 		~Cure();
 
 
-		AMateria *Cure::clone() const;
+		AMateria *clone() const;
 		void use(ICharacter& target);
 };
 

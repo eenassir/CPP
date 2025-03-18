@@ -6,11 +6,11 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:37:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/15 17:19:55 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:15:02 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "AMateria.h"
 
 Ice::Ice()
 {
@@ -45,5 +45,5 @@ AMateria *Ice::clone() const
 
 void Ice::use(ICharacter &target)
 {
-	std::cout <<"* heals "<<target.getName()<<"'s wounds *"<<std::endl;
+	std::cout <<"* shoots an ice bolt at "<<target.getName()<< " *" <<  std::endl;
 }

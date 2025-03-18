@@ -6,13 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 22:54:54 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/15 17:29:19 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:46:41 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "AMateria.h"
 
-AMateria::AMateria() : type("Default") {}
+AMateria::AMateria() : type("") {}
 
 AMateria::AMateria(const AMateria &mem)
 {
@@ -36,12 +36,8 @@ std::string const &AMateria::getType() const
 	return (this->type);
 }
 
-std::string const &AMateria::getType() const
-{
-	return (this->type);
-}
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout <<" "<<target.getName()<<" "<<std::endl;
+	std::cout <<"* uses unknown materia on "<<target.getName()<<" *"<<std::endl;
 }

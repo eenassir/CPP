@@ -6,21 +6,15 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 22:54:57 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/15 17:23:20 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:02:33 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-#include <iostream>
-#include "ICharacter.hpp"
-#include "Character.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
-
+# include "AMateria.h"
+class ICharacter;
 class AMateria
 {
 	protected:
@@ -31,9 +25,9 @@ class AMateria
 		AMateria();
 		AMateria(const AMateria &mem);
 		AMateria &operator=(const AMateria &mem);
-		~AMateria();
+		virtual ~AMateria();
 
-		std::string const &getType() const;
+		std::string const & getType() const;
 
 		virtual AMateria *clone() const = 0;
 		virtual void use(ICharacter& target);

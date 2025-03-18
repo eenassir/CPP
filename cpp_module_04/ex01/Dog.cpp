@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:01:18 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:25:03 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/16 00:56:41 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() : Animal()
 {
 	std::cout <<"The Dog_default constructor is called" <<std::endl;
-	this->ptr = new Brain();
+	this->ptr = NULL;
 	type = "Dog";
 }
 
@@ -23,7 +23,9 @@ Dog::Dog(const Dog &mem) : Animal(mem)
 {
 	std::cout <<"The Dog copy constructor called"<<std::endl;
 	this->ptr = NULL;
-	*this = mem;
+	this->ptr = new(Brain);
+	// *this = mem;
+	*(this->ptr) = *(mem.ptr);
 }
 
 Dog &Dog::operator=(const Dog &mem)
