@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:08 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/23 15:57:23 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:22:46 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -40,6 +41,7 @@ class Bureaucrat
 		};
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form & form);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat & mem);
