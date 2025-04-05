@@ -1,4 +1,4 @@
-NAME = Bure
+NAME = a.out
 
 SRC = Bureaucrat.cpp Form.cpp main.cpp  
 
@@ -6,7 +6,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:     $(NAME)
 $(NAME): $(OBJ)

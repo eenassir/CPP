@@ -1,4 +1,4 @@
-NAME = Bure
+NAME = a.out
 
 SRC = main.cpp Bureaucrat.cpp
 

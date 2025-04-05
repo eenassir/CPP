@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/04 10:10:02 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/05 11:57:11 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string Name;
@@ -27,8 +27,7 @@ class Form
 		const int gradeToSign;
 		const int gradeToExecute;
 	public:
-		Form(const std::string &name_, int gradeToSign_, int gradeToExecute_);
-		~Form();
+		AForm(const std::string &name_, int gradeToSign_, int gradeToExecute_);
 		
 		const std::string &getName() const;
 
@@ -49,8 +48,9 @@ class Form
 			public:
 				virtual const char *what() const throw();
 		};
+		virtual void executeAForm(AForm const & form) const = 0;
 };
 
-std::ostream  &operator<<(std::ostream & os, const Form & other);
+std::ostream  &operator<<(std::ostream & os, const AForm & other);
 
 # endif
