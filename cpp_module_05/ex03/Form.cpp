@@ -6,12 +6,17 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/05 17:59:41 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:47:54 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+
+Form::Form(std::string const & formName, std::string const & target)
+{
+	
+}
 
 Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), signedStatus(false), 
 gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){

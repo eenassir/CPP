@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 11:20:02 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 16:20:43 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/07 23:07:01 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/08 18:55:54 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef INTREN_HPP
+#define INTERN_HPP
 
 #include <iostream>
-#include <string>
 #include "AForm.hpp"
+#include "Form.hpp"
+#include <stdexcept>
 
-class RobotomyRequestForm : public AForm
+class Intern
 {
-	private:
-		std::string target;
 	public:
-		RobotomyRequestForm(std::string const &target);
-		std::string getTarget() const;
-		virtual void execute(Bureaucrat const & executor) const;
+		class FormExistException : public std::exception
+		{
+			public:
+			const char *what() const throw();
+		};
+		Form* makeForm(const std::string & str1, const std::string & str2)
 };
 
 #endif

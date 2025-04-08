@@ -38,7 +38,12 @@ class concrete : public interface
 
 int main()
 {
-	concrete mem("make");
-	std::cout <<mem.getName() <<std::endl;
-	mem.print();
+	int *array = new int[3];
+	int *n;
+
+	array[0] = 1;
+	array[5] = 17;
+	std::cout <<array[0]<<std::endl;
+	std::cout <<array[5]<<std::endl;
+
 }
