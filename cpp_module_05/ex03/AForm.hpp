@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 12:23:29 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:32:23 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class AForm
 		AForm(const std::string &name_, int gradeToSign_, int gradeToExecute_);
 
 		virtual ~AForm();
+		
 		const std::string &getName() const;
 
 		bool getSignedStatus() const;

@@ -6,24 +6,22 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/08 18:47:54 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:31:08 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(std::string const & formName, std::string const & target)
-{
-	
-}
-
-Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), signedStatus(false), 
-gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){
+Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), gradeToSign(gradeToSign_), signedStatus(false),  gradeToExecute(gradeToExecute_){
 	if (gradeToExecute < 1 || gradeToSign < 1)
 		throw GradeToolHighException();
 	if (gradeToExecute > 150 || gradeToSign > 150)
 		throw GradeToolLowException();
+}
+
+Form::Form(const std::string &formName, const std::string &target) :Name(formName), Target(target), gradeToSign(1), signedStatus(false), gradeToExecute(150)
+{
 }
 
 const std::string &Form::getName() const{

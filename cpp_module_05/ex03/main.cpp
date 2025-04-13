@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:11 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 22:45:35 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:38:15 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include "Intern.hpp"
 
 int main()
 {
@@ -29,6 +30,11 @@ int main()
         std::cout << mid << std::endl;
         std::cout << high << std::endl;
 
+        Intern intern;
+        Form *form;
+
+        form = intern.makeForm("form", "target");
+    
         ShrubberyCreationForm shrubForm("garden");
         std::cout << shrubForm << std::endl;
 

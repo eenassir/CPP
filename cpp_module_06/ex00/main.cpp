@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:07:41 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/10 16:03:32 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/11 11:17:44 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/13 00:36:37 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#include <iostream>
+#include "ScalarConverter.hpp"
 
-const char *Intern::FormExistException::what() const throw(){
-	return ("The Form does'nt exist");
-}
-
-Form *Intern::makeForm(const std::string &formName, const std::string &target)
+int main(int ac, char **av)
 {
-	if (formName.length() == 0 || target.length() == 0)
-		throw FormExistException();
-	Form *mem = new Form(formName, target);
-	std::cout<<"Intern creates " <<formName<<std::endl;
-	return (mem);
+	if (ac != 2)
+		return (std::cout <<"The nbr of arg incorrect"<<std::endl, 1);
+	ScalarConverter::convert(av[1]);
+	return (0);
 }
