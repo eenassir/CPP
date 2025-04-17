@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:07:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:24:52 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/14 11:12:59 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/14 14:55:27 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef  B_HPP
+# define B_HPP
 
 #include <iostream>
-#include "AForm.hpp"
-#include "Form.hpp"
-#include <stdexcept>
+#include "Base.hpp"
 
-class Intern
-{
-	//OCF
-	public:
-		class FormExistException : public std::exception
-		{
-			public:
-			const char *what() const throw();
-		};
-		Form* makeForm(const std::string &formName, const std::string &target);
-};
+class B : public Base{};
 
 #endif

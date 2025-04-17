@@ -6,12 +6,29 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/04 11:01:56 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:03:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+
+
+Form::Form() : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1) {}
+
+Form::Form(const Form &other){
+	*this = other;
+}
+
+Form &Form::operator=(const Form &other){
+	if (this == &other)
+		return (*this);
+	this->Name = other.getName();
+	this->gradeToSign = other.getGradeToSign();
+	return (*this);
+}
+
+Form::~Form(){}
 
 Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), signedStatus(false), 
 gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){
@@ -21,19 +38,19 @@ gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){
 		throw GradeToolLowException();
 }
 
-const std::string &Form::getName() const{
+std::string &Form::getName(){
 	return (this->Name);
 }
 
-bool Form::getSignedStatus() const{
+bool Form::getSignedStatus(){
 	return (this->signedStatus);
 }
 
-int Form::getGradeToSign() const{
+int Form::getGradeToSign(){
 	return (this->gradeToSign);	
 }
 
-int Form::getGradeToExecute() const{
+int Form::getGradeToExecute(){
 	return (this->gradeToExecute);
 }
 
@@ -51,7 +68,7 @@ const char *Form::GradeToolHighException::what() const throw(){
 const char *Form::GradeToolLowException::what() const throw(){
 	return ("Grade is too low, the grade must be between 1 and 150.");
 }
-Form::~Form(){}
+
 
 std::ostream &operator<<(std::ostream & os, const Form & other){
 	os << other.getName()<<", Form signed status "<<other.getSignedStatus()<<" grade_to_sign ";

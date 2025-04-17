@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 16:50:46 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 09:26:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void Bureaucrat::decrementGrade(){
 void Bureaucrat::signForm(AForm &form){
 	try{
 		form.beSigned(*this);
-			std::cout <<this->getName()<<" signed "<<form.getName()<<"."<<std::endl;
+		std::cout <<this->getName()<<" signed "<<form.getName()<<"."<<std::endl;
 	}
 	catch(const std::exception& e){
 		std::cout <<this->getName()<<" couldn't sign "<<form.getName()<<" because "<<e.what()<<"."<<std::endl;

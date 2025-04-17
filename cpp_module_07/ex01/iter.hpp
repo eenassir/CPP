@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:07:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:24:52 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/16 00:51:01 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/16 20:48:05 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
 #include <iostream>
-#include "AForm.hpp"
-#include "Form.hpp"
-#include <stdexcept>
 
-class Intern
+template<typename MyType>
+
+void iter(MyType Array, int length, int (*func)(MyType ))
 {
-	//OCF
-	public:
-		class FormExistException : public std::exception
-		{
-			public:
-			const char *what() const throw();
-		};
-		Form* makeForm(const std::string &formName, const std::string &target);
-};
+	for (int i ; i < length; i++)
+	{
+		std::cout <<func(array[i])<<std::endl;
+	}
+}
 
 #endif

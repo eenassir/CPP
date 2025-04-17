@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/04 10:10:02 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:04:04 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,25 @@ class Bureaucrat;
 class Form
 {
 	private:
-		const std::string Name;
+		std::string Name;
 		bool signedStatus;
-		const int gradeToSign;
-		const int gradeToExecute;
+		int gradeToSign;
+		int gradeToExecute;
 	public:
-		Form(const std::string &name_, int gradeToSign_, int gradeToExecute_);
+		Form();
+		Form(const Form &other);
+		Form& operator=(const Form &other);
 		~Form();
+		
+		Form(const std::string &name_, int gradeToSign_, int gradeToExecute_);
 		
 		const std::string &getName() const;
 
-		bool getSignedStatus() const;
+		const bool getSignedStatus() const;
 
-		int getGradeToSign() const;
+		const int getGradeToSign() const;
 
-		int getGradeToExecute() const;
+		const int getGradeToExecute() const;
 
 		void beSigned(Bureaucrat const & other);
 		

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:08 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/23 15:57:23 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:27:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,27 @@
 
 #include <iostream>
 #include <fstream>
-#include <stdexcept>
+#include <exception>
 
 class Bureaucrat
 {
 	private:
-		const std::string name;
+		std::string name;
 		int grade;
 	public:
 		Bureaucrat();
+		Bureaucrat(const Bureaucrat &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
+		~Bureaucrat();
+		
 		Bureaucrat(const std::string & Name, int gr);
-		Bureaucrat & operator=(const Bureaucrat & other);
 		const std::string& getName() const;
 		int getGrade() const;
-		class GradeToolHighException : public std::exception
-		{
+		class GradeToolHighException : public std::exception{
 			public:
 				virtual const char * what() const throw();
 		};
-		class GradeToolLowException : public std::exception
-		{
+		class GradeToolLowException : public std::exception{
 			public:
 				virtual const char * what() const throw();
 		};

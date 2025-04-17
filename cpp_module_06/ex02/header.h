@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:07:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:24:52 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/14 14:53:48 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/14 14:58:20 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef HEADER_HPP
+# define HEADER_HPP
 
 #include <iostream>
-#include "AForm.hpp"
-#include "Form.hpp"
-#include <stdexcept>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-class Intern
-{
-	//OCF
-	public:
-		class FormExistException : public std::exception
-		{
-			public:
-			const char *what() const throw();
-		};
-		Form* makeForm(const std::string &formName, const std::string &target);
-};
+Base * generate(void);
+void identify(Base *p);
+void identify(Base& p);
 
 #endif

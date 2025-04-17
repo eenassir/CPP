@@ -6,13 +6,28 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/04 10:54:12 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:18:52 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : name(""), grade(150){}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &other){
+	*this = other;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+	if (this == &other)
+		return (*this);
+	this->name = other.getGrade();
+	this->grade = other.getGrade();
+	return (*this);
+}
+
+Bureaucrat::~Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(const std::string & Name, int gr) : name(Name){
 	if (gr > 150)
@@ -22,7 +37,7 @@ Bureaucrat::Bureaucrat(const std::string & Name, int gr) : name(Name){
 	this->grade = gr;
 }
 
-const std::string& Bureaucrat::getName() const{
+const std::string Bureaucrat::getName() const{
 	return (name);
 }
 
@@ -36,17 +51,17 @@ const char *Bureaucrat::GradeToolLowException::what() const throw(){
 	return ("Grade is too low, the grade must be between 1 and 150.");}
 
 void Bureaucrat::incrementGrade(){
-	if ((this->grade + 1) > 150)
-		throw GradeToolLowException();
+	if ((this->grade - 1) < 1)
+		throw GradeToolHighException();
 	else
-		this->grade++;
+		this->grade--;
 }
 
 void Bureaucrat::decrementGrade(){
-	if ((this->grade - 1) < 1)
-		throw GradeToolHighException();
+	if ((this->grade + 1) > 150)
+		throw GradeToolLowException();
 	else	
-		this->grade--;
+		this->grade++;
 }
 
 void Bureaucrat::signForm(Form &form){

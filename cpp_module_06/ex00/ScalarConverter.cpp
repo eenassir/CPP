@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 19:35:11 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/13 15:17:11 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:23:30 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,12 @@ void ScalarConverter::convertToChar(char value)
 {
 	std::cout <<"char: ";
 	if (isprint(value) != 0)
-		std::cout <<value<<std::endl;
+		std::cout <<"'"<<value<<"'"<<std::endl;
 	else
 		std::cout <<"Non displayable"<<std::endl;
 std::cout <<"int: "<<static_cast<int>(value)<<std::endl;
-std::cout <<"float: "<<static_cast<float>(value)<<std::endl;
-std::cout <<"double: "<<static_cast<double>(value)<<std::endl;
+std::cout <<"float: "<<static_cast<float>(value)<<".0f"<<std::endl;
+std::cout <<"double: "<<static_cast<double>(value)<<".0"<<std::endl;
 }
 
 void ScalarConverter::convertToInt(int value)

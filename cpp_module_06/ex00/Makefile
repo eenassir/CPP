@@ -1,14 +1,14 @@
-NAME = Converter
+NAME = convert
 
 SRC = main.cpp ScalarConverter.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC =  c++
 
-CFLAGS = -std=c++98 #-Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-all:     $(NAME)
+all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 

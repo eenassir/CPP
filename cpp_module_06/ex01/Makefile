@@ -1,18 +1,18 @@
-NAME =   
+NAME = serialize
 
-SRC =    
+SRC = main.cpp Serializer.cpp Struct.cpp
 
 OBJ =    $(SRC:.cpp=.o)
 
 CC =     c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:     $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Serializer.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

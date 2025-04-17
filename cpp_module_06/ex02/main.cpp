@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:07:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:24:52 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/14 11:08:34 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/14 23:49:58 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
-
 #include <iostream>
-#include "AForm.hpp"
-#include "Form.hpp"
-#include <stdexcept>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include "header.h"
 
-class Intern
+int main()
 {
-	//OCF
-	public:
-		class FormExistException : public std::exception
-		{
-			public:
-			const char *what() const throw();
-		};
-		Form* makeForm(const std::string &formName, const std::string &target);
-};
+	Base *randomBase = generate();
+	std::cout <<"identified by pointer : ";
+	identify(randomBase);
 
-#endif
+	std::cout <<"identified by reference : ";
+	identify(*randomBase);
+}

@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:07:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:24:52 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/16 10:37:52 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/16 20:47:46 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
-
 #include <iostream>
-#include "AForm.hpp"
-#include "Form.hpp"
-#include <stdexcept>
+#include "iter.hpp"
 
-class Intern
+int main()
 {
-	//OCF
-	public:
-		class FormExistException : public std::exception
-		{
-			public:
-			const char *what() const throw();
-		};
-		Form* makeForm(const std::string &formName, const std::string &target);
-};
+	char *s[3];
 
-#endif
+	s[0] = "111";
+	s[1] = "122";
+	s[2] = "55";
+	iter<const char *>(s,  3, atoi);
+}

@@ -1,18 +1,18 @@
-NAME =   
+NAME = iter
 
-SRC =    
+SRC = main.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-all:     $(NAME)
+all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp iter.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:
