@@ -22,16 +22,18 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		const std::string  Name;
-		bool               SignedStatus;
-		const int          GradeToSign;
-		const int          GradeToExecute;
+		std::string  Name;
+		bool         SignedStatus;
+		int          GradeToSign;
+		int          GradeToExecute;
 	public:
 		AForm();
-		
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		virtual ~AForm();
+
 		AForm(const std::string &name_, int gradeToSign_, int gradeToExecute_);
 
-		virtual ~AForm();
 		const std::string &getName() const;
 
 		bool getSignedStatus() const;

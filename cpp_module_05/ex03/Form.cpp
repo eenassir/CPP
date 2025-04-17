@@ -6,22 +6,38 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/10 18:31:08 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:59:41 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), gradeToSign(gradeToSign_), signedStatus(false),  gradeToExecute(gradeToExecute_){
+Form::Form() : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1){}
+
+Form::Form(const Form &other)
+{
+	*this = other;
+}
+
+Form &Form::operator=(const Form &other)
+{
+	if (this == &other)
+		return (*this);
+	this->Name = other.getName();
+	this->signedStatus = other.getGradeToSign();
+	this->gradeToExecute = other.getGradeToExecute();
+	return (*this);
+}
+
+Form::~Form(){}
+
+Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), signedStatus(false), 
+gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){
 	if (gradeToExecute < 1 || gradeToSign < 1)
 		throw GradeToolHighException();
 	if (gradeToExecute > 150 || gradeToSign > 150)
 		throw GradeToolLowException();
-}
-
-Form::Form(const std::string &formName, const std::string &target) :Name(formName), Target(target), gradeToSign(1), signedStatus(false), gradeToExecute(150)
-{
 }
 
 const std::string &Form::getName() const{
@@ -54,7 +70,6 @@ const char *Form::GradeToolHighException::what() const throw(){
 const char *Form::GradeToolLowException::what() const throw(){
 	return ("Grade is too low, the grade must be between 1 and 150.");
 }
-Form::~Form(){}
 
 std::ostream &operator<<(std::ostream & os, const Form & other){
 	os << other.getName()<<", Form signed status "<<other.getSignedStatus()<<" grade_to_sign ";

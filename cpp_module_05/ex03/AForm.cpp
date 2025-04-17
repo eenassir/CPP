@@ -6,15 +6,31 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/10 18:32:40 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:23:19 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : Name("Default_Form"), SignedStatus(false), GradeToSign(150), GradeToExecute(150)
-{}
+AForm::AForm() : Name("Default_Form"), SignedStatus(false), GradeToSign(150), GradeToExecute(150){}
+
+AForm::AForm(const AForm &other)
+{
+	*this = other;
+}
+
+AForm &AForm::operator=(const AForm &other)
+{
+	if (this == &other)
+		return (*this);
+	this->Name = other.getName();
+	this->SignedStatus = getSignedStatus();
+	this->GradeToSign = other.getGradeToSign();
+	this->GradeToExecute = other.getGradeToExecute();
+	return (*this);
+}
+AForm::~AForm(){}
 
 AForm::AForm(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), SignedStatus(false), 
 GradeToSign(gradeToSign_), GradeToExecute(gradeToExecute_){
@@ -24,8 +40,6 @@ GradeToSign(gradeToSign_), GradeToExecute(gradeToExecute_){
 		throw GradeToolLowException();
 }
 
-AForm::~AForm()
-{}
 
 const std::string &AForm::getName() const{
 	return (this->Name);

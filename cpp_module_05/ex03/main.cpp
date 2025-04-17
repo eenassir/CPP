@@ -31,9 +31,10 @@ int main()
         std::cout << high << std::endl;
 
         Intern intern;
-        Form *form;
+        Form *rrrf;
 
-        form = intern.makeForm("form", "target");
+        rrrf = intern.makeForm("form", "target");
+        std::cout<<rrrf->getName()<<std::endl;
     
         ShrubberyCreationForm shrubForm("garden");
         std::cout << shrubForm << std::endl;

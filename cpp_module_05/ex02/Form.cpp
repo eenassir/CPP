@@ -13,6 +13,25 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+Form::Form() : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1){}
+
+Form::Form(const Form &other)
+{
+	*this = other;
+}
+
+Form &Form::operator=(const Form &other)
+{
+	if (this == &other)
+		return (*this);
+	this->Name = other.getName();
+	this->signedStatus = other.getGradeToSign();
+	this->gradeToExecute = other.getGradeToExecute();
+	return (*this);
+}
+
+Form::~Form(){}
+
 Form::Form(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), signedStatus(false), 
 gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){
 	if (gradeToExecute < 1 || gradeToSign < 1)
@@ -51,7 +70,6 @@ const char *Form::GradeToolHighException::what() const throw(){
 const char *Form::GradeToolLowException::what() const throw(){
 	return ("Grade is too low, the grade must be between 1 and 150.");
 }
-Form::~Form(){}
 
 std::ostream &operator<<(std::ostream & os, const Form & other){
 	os << other.getName()<<", Form signed status "<<other.getSignedStatus()<<" grade_to_sign ";

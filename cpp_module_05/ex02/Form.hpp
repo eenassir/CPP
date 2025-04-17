@@ -22,13 +22,17 @@ class Bureaucrat;
 class Form
 {
 	private:
-		const std::string Name;
+		std::string Name;
 		bool signedStatus;
-		const int gradeToSign;
-		const int gradeToExecute;
+		int gradeToSign;
+		int gradeToExecute;
 	public:
-		Form(const std::string &name_, int gradeToSign_, int gradeToExecute_);
+		Form();
+		Form(const Form &other);
+		Form &operator=(const Form &other);
 		~Form();
+
+		Form(const std::string &name_, int gradeToSign_, int gradeToExecute_);
 		
 		const std::string &getName() const;
 

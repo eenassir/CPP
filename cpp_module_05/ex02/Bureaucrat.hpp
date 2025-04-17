@@ -21,10 +21,14 @@
 
 class Bureaucrat {
 	private:
-		const std::string name;
-		int               grade;
+		std::string	name;
+		int			grade;
 	public:
 		Bureaucrat();
+		Bureaucrat(const Bureaucrat &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
+		~Bureaucrat();
+
 		Bureaucrat(const std::string & Name, int gr);
 		const std::string& getName() const;
 		int getGrade() const;

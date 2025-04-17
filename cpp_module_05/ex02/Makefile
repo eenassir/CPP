@@ -6,18 +6,17 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CFLAGS =  -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:     $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp #Bureaucrat.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Form.hpp AForm.hpp
-	$(CC) $(CFLAGS) -c $< -MMD
+%.o: %.cpp Bureaucrat.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Form.hpp AForm.hpp
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -rf $(OBJ)
-	rm -rf $(OBJ:.o=.d)
 
 fclean: clean
 	rm -rf $(NAME)
@@ -26,5 +25,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean
-
--include $(OBJ:.o=.d)

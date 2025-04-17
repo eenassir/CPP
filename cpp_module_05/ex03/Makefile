@@ -6,7 +6,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CFLAGS =  -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:     $(NAME)
 $(NAME): $(OBJ)
@@ -20,6 +20,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(shell ls | grep _shruberry)
 
 re: fclean all
 

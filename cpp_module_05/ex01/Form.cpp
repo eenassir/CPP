@@ -14,7 +14,7 @@
 #include "Bureaucrat.hpp"
 
 
-Form::Form() : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1) {}
+Form::Form() : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1){}
 
 Form::Form(const Form &other){
 	*this = other;
@@ -25,6 +25,7 @@ Form &Form::operator=(const Form &other){
 		return (*this);
 	this->Name = other.getName();
 	this->gradeToSign = other.getGradeToSign();
+	this->gradeToExecute = other.getGradeToExecute();
 	return (*this);
 }
 
@@ -38,19 +39,19 @@ gradeToSign(gradeToSign_), gradeToExecute(gradeToExecute_){
 		throw GradeToolLowException();
 }
 
-std::string &Form::getName(){
+std::string Form::getName() const{
 	return (this->Name);
 }
 
-bool Form::getSignedStatus(){
+bool Form::getSignedStatus() const{
 	return (this->signedStatus);
 }
 
-int Form::getGradeToSign(){
+int Form::getGradeToSign() const{
 	return (this->gradeToSign);	
 }
 
-int Form::getGradeToExecute(){
+int Form::getGradeToExecute() const{
 	return (this->gradeToExecute);
 }
 

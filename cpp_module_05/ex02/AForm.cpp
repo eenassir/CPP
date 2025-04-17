@@ -13,8 +13,25 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : Name("Default_Form"), SignedStatus(false), GradeToSign(150), GradeToExecute(150)
-{}
+AForm::AForm() : Name("Default_Form"), SignedStatus(false), GradeToSign(150), GradeToExecute(150){}
+
+AForm::AForm(const AForm &other)
+{
+	*this = other;
+}
+
+AForm &AForm::operator=(const AForm &other)
+{
+	if (this == &other)
+		return (*this);
+	this->Name = other.getName();
+	this->SignedStatus = getSignedStatus();
+	this->GradeToSign = other.getGradeToSign();
+	this->GradeToExecute = other.getGradeToExecute();
+	return (*this);
+}
+AForm::~AForm(){}
+
 AForm::AForm(const std::string &name_, int gradeToSign_, int gradeToExecute_): Name(name_), SignedStatus(false), 
 GradeToSign(gradeToSign_), GradeToExecute(gradeToExecute_){
 	if (GradeToExecute < 1 || GradeToSign < 1)
@@ -23,8 +40,6 @@ GradeToSign(gradeToSign_), GradeToExecute(gradeToExecute_){
 		throw GradeToolLowException();
 }
 
-AForm::~AForm()
-{}
 
 const std::string &AForm::getName() const{
 	return (this->Name);

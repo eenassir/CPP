@@ -14,8 +14,26 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &_target) : AForm("ShrubberyCreationForm", 145, 137), target(_target){
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm(), target(""){}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
+{
+	*this = other;
 }
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+	if (this == &other)
+		return (*this);
+	AForm::operator=(other);
+	this->target = other.getTarget();
+	return (*this);
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &_target) : AForm("ShrubberyCreationForm", 145, 137), target(_target)
+{}
 
 std::string ShrubberyCreationForm::getTarget() const{
 	return (target);
@@ -24,9 +42,10 @@ std::string ShrubberyCreationForm::getTarget() const{
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	if (!getSignedStatus())
 		throw FormNotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
+	if (executor.getGrade() <= this->getGradeToExecute())
 		throw GradeToolLowException();
-	std::ofstream outfile(target + "_shruberry");
+	std::string strr = target + "_shruberry"; 
+	std::ofstream outfile(strr.c_str());
 	if (outfile.is_open())
 	{
 		outfile <<"                 /\\"<<std::endl;

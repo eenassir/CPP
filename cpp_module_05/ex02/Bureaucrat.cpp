@@ -16,6 +16,22 @@
 
 Bureaucrat::Bureaucrat() : name(""), grade(150){}
 
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
+{
+	*this = other;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+	if (this == &other)
+		return (*this);
+	this->name = other.getName();
+	this->grade = other.getGrade();
+	return (*this);
+}
+
+Bureaucrat::~Bureaucrat(){}
+
 Bureaucrat::Bureaucrat(const std::string & Name, int gr) : name(Name){
 	if (gr > 150)
 		throw GradeToolLowException();

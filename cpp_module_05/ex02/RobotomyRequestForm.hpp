@@ -20,12 +20,16 @@
 class RobotomyRequestForm : public AForm
 {
 	private:
-		// std::string target;
+		std::string target;
 	public:
+		RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+		~RobotomyRequestForm();
+
 		RobotomyRequestForm(std::string const &target);
 		std::string getTarget() const;
 		virtual void execute(Bureaucrat const & executor) const;
-		// ocf
 };
 
 #endif

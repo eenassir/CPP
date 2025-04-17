@@ -14,16 +14,18 @@
 # define INTERN_HPP
 
 #include <iostream>
-#include "AForm.hpp"
 #include "Form.hpp"
 #include <stdexcept>
 
 class Intern
 {
-	//OCF
 	public:
-		class FormExistException : public std::exception
-		{
+		Intern();
+		Intern(const Intern &other);
+		Intern &operator=(const Intern &other);
+		~Intern();
+
+		class FormExistException : public std::exception{
 			public:
 			const char *what() const throw();
 		};

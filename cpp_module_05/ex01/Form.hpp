@@ -34,13 +34,13 @@ class Form
 		
 		Form(const std::string &name_, int gradeToSign_, int gradeToExecute_);
 		
-		const std::string &getName() const;
+		std::string getName() const;
 
-		const bool getSignedStatus() const;
+		bool getSignedStatus() const;
 
-		const int getGradeToSign() const;
+		int getGradeToSign() const;
 
-		const int getGradeToExecute() const;
+		int getGradeToExecute() const;
 
 		void beSigned(Bureaucrat const & other);
 		
