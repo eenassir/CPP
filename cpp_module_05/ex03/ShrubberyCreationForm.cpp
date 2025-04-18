@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 11:17:51 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 16:20:52 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:55:04 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 
 const char *ShrubberyCreationForm::FileOpenException::what() const throw(){
 	return ("can't open the file.");
+}
+
+AForm *ShrubberyCreationForm::create(const std::string &target_)
+{
+	return (new ShrubberyCreationForm(target_));
 }

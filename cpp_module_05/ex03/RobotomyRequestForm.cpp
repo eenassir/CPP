@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 11:20:36 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:30:36 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:55:25 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ std::string RobotomyRequestForm::getTarget() const{
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 	if (!getSignedStatus())
 		throw FormNotSignedException();
-	if (executor.getGrade() <= this->getGradeToExecute())
+	else if (executor.getGrade() <= this->getGradeToExecute())
 		throw GradeToolLowException();
 	std::cout <<"* DRILLING NOISES * Bzzzzzz... Drrrrrrr...."<<std::endl;
 
@@ -52,4 +52,9 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 		std::cout <<this->target <<"has been robotomized successfuly"<<std::endl;
 	else
 		std::cout <<"Robotomy of "<<this->target<<" failed!"<<std::endl;
+}
+
+AForm *RobotomyRequestForm::create(const std::string &target_)
+{
+	return (new RobotomyRequestForm(target_));
 }

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:47 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 12:23:29 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 20:57:47 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		std::string  Name;
+		const std::string  Name;
 		bool         SignedStatus;
-		int          GradeToSign;
-		int          GradeToExecute;
+		const int          GradeToSign;
+		const int          GradeToExecute;
 	public:
 		AForm();
 		AForm(const AForm &other);

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:11 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 22:45:35 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/18 00:48:01 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main()
 {
 
     try {
-        Bureaucrat low("Intern", 140);
-        Bureaucrat mid("Officer", 70);
+        Bureaucrat low("Intern", 71);
+        Bureaucrat mid("Officer", 10);
         Bureaucrat high("Director", 5);
 
         std::cout << low << std::endl;
@@ -49,9 +49,9 @@ int main()
         
         low.signForm(robotForm);
 
-        mid.signForm(robotForm);
+        low.signForm(robotForm);
         
-        mid.executeForm(robotForm);
+        low.executeForm(robotForm);
 
         high.executeForm(robotForm);
         
@@ -59,7 +59,7 @@ int main()
         std::cout << pardonForm << std::endl;
 
         mid.signForm(pardonForm);
-
+        mid.executeForm(pardonForm);
         high.signForm(pardonForm);
         
         Bureaucrat executive("Executive", 10);

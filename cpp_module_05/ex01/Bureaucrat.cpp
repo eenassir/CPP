@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 11:18:52 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/18 00:40:39 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this == &other)
 		return (*this);
-	this->name = other.getGrade();
 	this->grade = other.getGrade();
 	return (*this);
 }
@@ -46,9 +45,9 @@ int Bureaucrat::getGrade() const{
 }
 
 const char *Bureaucrat::GradeToolHighException::what() const throw(){
-	return ("Grade is too high, the grade must be between 1 and 150.");}
+	return ("Grade is too high");}
 const char *Bureaucrat::GradeToolLowException::what() const throw(){
-	return ("Grade is too low, the grade must be between 1 and 150.");}
+	return ("Grade is too low");}
 
 void Bureaucrat::incrementGrade(){
 	if ((this->grade - 1) < 1)

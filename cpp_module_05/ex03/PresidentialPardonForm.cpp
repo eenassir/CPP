@@ -6,12 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 14:06:16 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 09:34:32 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:55:37 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm(), target(""){}
 
@@ -43,4 +44,8 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const{
 	if (executor.getGrade() <= this->getGradeToExecute())
 		throw GradeToolLowException();
 	std::cout <<this->target<<" has been pardoned by Zaphond Beeblebrox"<<std::endl;
+}
+
+AForm *PresidentialPardonForm::create(const std::string &target){
+	return (new PresidentialPardonForm(target));
 }

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:08 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 16:51:00 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 20:58:06 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 class Bureaucrat {
 	private:
-		std::string	name;
+		const std::string	name;
 		int			grade;
 	public:
 		Bureaucrat();

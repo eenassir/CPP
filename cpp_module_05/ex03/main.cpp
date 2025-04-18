@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:11 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/10 16:38:15 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/18 09:27:58 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,64 +20,22 @@
 
 int main()
 {
-
     try {
-        Bureaucrat low("Intern", 140);
-        Bureaucrat mid("Officer", 70);
-        Bureaucrat high("Director", 5);
+        Bureaucrat low("Intern", 70);
 
-        std::cout << low << std::endl;
-        std::cout << mid << std::endl;
-        std::cout << high << std::endl;
-
+        
         Intern intern;
-        Form *rrrf;
+        AForm *rrf;
 
-        rrrf = intern.makeForm("form", "target");
-        std::cout<<rrrf->getName()<<std::endl;
-    
-        ShrubberyCreationForm shrubForm("garden");
-        std::cout << shrubForm << std::endl;
-
-        low.signForm(shrubForm);
-        low.executeForm(shrubForm);
-
-        while (low.getGrade() > 145) {
-            low.incrementGrade();
-        }
-        std::cout << low << std::endl;
-        low.signForm(shrubForm);
-        
-        low.executeForm(shrubForm);
-
-        mid.executeForm(shrubForm);
-        RobotomyRequestForm robotForm("Bender");
-        std::cout << robotForm << std::endl;
-        
-        low.signForm(robotForm);
-
-        mid.signForm(robotForm);
-        
-        mid.executeForm(robotForm);
-
-        high.executeForm(robotForm);
-        
-        PresidentialPardonForm pardonForm("Arthur Dent");
-        std::cout << pardonForm << std::endl;
-
-        mid.signForm(pardonForm);
-
-        high.signForm(pardonForm);
-        
-        Bureaucrat executive("Executive", 10);
-        std::cout << executive << std::endl;
-        executive.executeForm(pardonForm);
-        
-        high.executeForm(pardonForm);
+        rrf = intern.makeForm("robotomy request", "Bender");
+        std::cout<<*rrf<<std::endl;
+        low.signForm(*rrf);
+        std::cout <<std::endl;
+        std::cout<<*rrf<<std::endl;
+        delete(rrf);
 
     } catch (std::exception& e) {
-        std::cerr << "The thrown exception: " << e.what() << std::endl;
+        std::cout << "The thrown exception: " << e.what() << std::endl;
     }
-
     return 0;
 }

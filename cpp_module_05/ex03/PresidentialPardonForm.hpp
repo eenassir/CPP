@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 14:05:36 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 16:20:57 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 22:59:29 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(std::string const &target);
 		std::string getTarget()const;
 		virtual void execute(Bureaucrat const & executor) const;
+		static AForm *create(const std::string &target); 
 };
 
 #endif

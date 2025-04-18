@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/05 17:59:41 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/18 00:39:10 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Form::Form() : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1){}
 
-Form::Form(const Form &other)
+Form::Form(const Form &other) : Name(""), signedStatus(false), gradeToSign(1), gradeToExecute(1)
 {
 	*this = other;
 }
@@ -24,9 +24,7 @@ Form &Form::operator=(const Form &other)
 {
 	if (this == &other)
 		return (*this);
-	this->Name = other.getName();
 	this->signedStatus = other.getGradeToSign();
-	this->gradeToExecute = other.getGradeToExecute();
 	return (*this);
 }
 
@@ -57,18 +55,18 @@ int Form::getGradeToExecute() const{
 }
 
 void Form::beSigned(Bureaucrat const & other){		
-	if (other.getGrade() > this->gradeToSign)
-		throw GradeToolLowException();
-	else
+	if (other.getGrade() <= this->gradeToSign)
 		this->signedStatus = true;
+	else
+		throw GradeToolLowException();
 }
 
 const char *Form::GradeToolHighException::what() const throw(){
-	return ("Grade is too high, the grade must be between 1 and 150.");
+	return ("Grade is too high");
 }
 
 const char *Form::GradeToolLowException::what() const throw(){
-	return ("Grade is too low, the grade must be between 1 and 150.");
+	return ("Grade is too low");
 }
 
 std::ostream &operator<<(std::ostream & os, const Form & other){

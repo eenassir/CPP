@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:11 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 11:34:05 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 18:26:33 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 #include <iostream>
 
 int main() {
-    
-    Bureaucrat Make("make", 11);
-    std::cout <<Make<<std::endl;
-    
-    std::cout <<std::endl;
-
-    Bureaucrat dev(Make);
-    std::cout <<dev<<std::endl;
 
     try {
         Bureaucrat john("John", 75);

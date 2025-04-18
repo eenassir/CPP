@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 12:23:19 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/18 00:39:31 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 AForm::AForm() : Name("Default_Form"), SignedStatus(false), GradeToSign(150), GradeToExecute(150){}
 
-AForm::AForm(const AForm &other)
+AForm::AForm(const AForm &other) : Name(""), SignedStatus(false), GradeToSign(1), GradeToExecute(1)
 {
 	*this = other;
 }
@@ -24,10 +24,7 @@ AForm &AForm::operator=(const AForm &other)
 {
 	if (this == &other)
 		return (*this);
-	this->Name = other.getName();
 	this->SignedStatus = getSignedStatus();
-	this->GradeToSign = other.getGradeToSign();
-	this->GradeToExecute = other.getGradeToExecute();
 	return (*this);
 }
 AForm::~AForm(){}
@@ -58,18 +55,18 @@ int AForm::getGradeToExecute() const{
 }
 
 void AForm::beSigned(Bureaucrat const & other){		
-	if (other.getGrade() > this->GradeToSign)
-		throw GradeToolLowException();
-	else
+	if (other.getGrade() <= this->GradeToSign)
 		this->SignedStatus = true;
+	else
+		throw GradeToolLowException();
 }
 
 const char *AForm::GradeToolHighException::what() const throw(){
-	return ("Grade is too high, the grade must be between 1 and 150.");
+	return ("Grade is too high");
 }
 
 const char *AForm::GradeToolLowException::what() const throw(){
-	return ("Grade is too low, the grade must be between 1 and 150.");
+	return ("Grade is too low");
 }
 
 const char *AForm::FormNotSignedException::what() const throw(){

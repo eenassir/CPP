@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 11:17:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/07 16:24:33 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:44:51 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class ShrubberyCreationForm : public AForm
 			public:
 				virtual const char* what() const throw();
 		};
+		static AForm *create(const std::string &target);
 };
 
 #endif

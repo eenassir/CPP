@@ -6,13 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:46:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/17 11:34:34 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/18 00:41:02 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name(""), grade(150){}
+Bureaucrat::Bureaucrat() : name("Default_name"), grade(150){}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other){
 	*this = other;
@@ -21,7 +21,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other){
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other){
 	if (this == &other)
 		return (*this);
-	this->name = other.getName();
 	this->grade = other.getGrade();
 	return (*this);
 }
@@ -45,9 +44,9 @@ int Bureaucrat::getGrade() const{
 }
 
 const char *Bureaucrat::GradeToolHighException::what() const throw() {
-	return ("Grade is too High, The grade must be between 1 and 150");}
+	return ("Grade is too High");}
 const char *Bureaucrat::GradeToolLowException::what() const throw(){
-	return ("Grade is too Low, The grade must be between 1 and 150");}
+	return ("Grade is too Low");}
 
 void Bureaucrat::incrementGrade(){
 	if ((this->grade - 1) < 1)
