@@ -1,6 +1,6 @@
 NAME = identify
 
-SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp impliment.cpp
+SRC = main.cpp Base.cpp impliment.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

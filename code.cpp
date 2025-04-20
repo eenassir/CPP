@@ -1,19 +1,25 @@
 #include <iostream>
 #include <string>
 
-enum h
-{
-	robotomy request
+ class Base
+ {
+	public:
+		virtual ~Base()
+		{
 
-};
+		}
+ };
+
+ class A : public Base {};
+
+ class B : public Base {};
+
 
 int main()
 {
-	int tmp;
+	Base * ptr;
 
-	switch(tmp)
-	{
-		case 1 :
+	ptr = new A;
+	std::cout <<dynamic_cast<B*>(ptr);
 
-	}
 }

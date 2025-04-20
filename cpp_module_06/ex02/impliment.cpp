@@ -6,11 +6,12 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:28:42 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/14 23:48:04 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/20 10:50:35 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -54,14 +55,16 @@ void identify(Base* p)
 	else
 		std::cout <<"Unknown type"<<std::endl;
 }
+
 void identify(Base& p)
-{
+{	
 	try{
 		(void)dynamic_cast<A&>(p);
 		std::cout <<"A"<<std::endl;
 		return ;
 	}
 	catch(const std::bad_cast &){}
+	 
 	try{
 		(void)dynamic_cast<B&>(p);
 		std::cout <<"B"<<std::endl;
@@ -75,6 +78,7 @@ void identify(Base& p)
 		return ;
 	}
 	catch(const std::bad_cast&){}
+	
 	std::cout <<"Unknown type"<<std::endl;
 }
 

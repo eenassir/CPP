@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:08:34 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/14 23:49:58 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/20 10:46:47 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main()
 {
-	Base *randomBase = generate();
+	Base *randomBase = NULL;
 	std::cout <<"identified by pointer : ";
 	identify(randomBase);
 

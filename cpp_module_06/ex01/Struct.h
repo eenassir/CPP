@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:36:05 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/14 15:41:40 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/20 09:58:53 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 	struct Data
 	{
 		public:
-			int a;
-			float b;
-			char c;
-			std::string other;
+			int int_val;
+			float float_val;
+			char char_val;
+			std::string string_val;
 			Data(int mem1, float mem2, char mem3, std::string mem4);
 	};
 
