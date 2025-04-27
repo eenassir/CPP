@@ -1,18 +1,18 @@
-NAME =   
+NAME = ex01
 
-SRC =    
+SRC = main.cpp Span.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-all:     $(NAME)
+all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Span.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:

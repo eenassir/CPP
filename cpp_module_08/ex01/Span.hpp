@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 11:08:34 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/20 10:46:47 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/25 12:27:29 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/25 23:52:58 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SPAN_HPP
+#define SPAN_HPP
+
 #include <iostream>
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include "header.h"
+#include <vector>
 
-int main()
+class Span
 {
-	Base *randomBase = NULL;
-	std::cout <<"identified by pointer : ";
-	identify(randomBase);
+	public:
+		Span();
+		Span(const Span &other);
+		Span &operator=(const Span &other);
+		~Span();
 
-	std::cout <<"identified by reference : ";
-	identify(*randomBase);
-}
+		Span(unsigned int N);
+		
+		void addNumber(int nbr);
+		unsigned int longestSpan();
+		unsigned int shortestSpan();
+	private:
+		unsigned int max_size;
+		std::vector<int> array;
+};
+
+#endif

@@ -14,8 +14,6 @@
 #include "ScalarConverter.hpp"
 #include <sstream>
 #include <string>
-#include <cmath>
-#include <limits>
 
 ScalarConverter::ScalarConverter(){}
 

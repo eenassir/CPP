@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include "Struct.h"
-#include <stdint.h>
 
 class Serializer
 {

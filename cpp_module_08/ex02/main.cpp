@@ -5,24 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 11:08:34 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/20 10:46:47 by eenassir         ###   ########.fr       */
+/*   Created: 2025/04/26 00:13:18 by eenassir          #+#    #+#             */
+/*   Updated: 2025/04/26 18:54:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include "header.h"
+#include "MutantStack.hpp"
 
 int main()
-{
-	Base *randomBase = NULL;
-	std::cout <<"identified by pointer : ";
-	identify(randomBase);
-
-	std::cout <<"identified by reference : ";
-	identify(*randomBase);
+{	
+	MutantStack<int> mstack;
+	
+	mstack.push(5);
+	mstack.push(17);
+	
+	std::cout << mstack.top() << std::endl;
+	
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	
+	++it;
+	--it;
+	
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	
+	std::stack<int> s(mstack);
+	
+	return 0;
 }

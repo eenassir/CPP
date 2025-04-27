@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 00:51:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/16 20:48:05 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/23 09:50:38 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,19 @@
 #include <iostream>
 
 template<typename MyType>
-
-void iter(MyType Array, int length, int (*func)(MyType ))
+void function(MyType const &a)
 {
-	for (int i ; i < length; i++)
+	std::cout <<a<<" ";
+}
+
+template<typename T>
+void iter(T *Array, int length, void (func)(T const &))
+{
+	int i = 0;
+
+	for(; i < length; i++)
 	{
-		std::cout <<func(array[i])<<std::endl;
+		func(Array[i]);
 	}
 }
 

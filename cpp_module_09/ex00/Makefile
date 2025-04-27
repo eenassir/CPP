@@ -1,6 +1,6 @@
-NAME =   
+NAME = btc
 
-SRC =    
+SRC = main.cpp BitcoinExchanger.cpp
 
 OBJ =    $(SRC:.cpp=.o)
 
@@ -12,7 +12,7 @@ all:     $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp BitcoinExchanger.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:
