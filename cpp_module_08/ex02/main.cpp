@@ -6,12 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 00:13:18 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/29 10:13:54 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:40:04 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "MutantStack.hpp"
+#include <list>
 
 int main()
 {	
@@ -50,6 +51,9 @@ int main()
 	}
 	
 	std::stack<int> s(mstack);
+
+
+	mem.push(1);
 	
 	return 0;
 }
