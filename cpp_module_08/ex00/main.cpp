@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:19:44 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/25 12:17:11 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:05:00 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 	try
 	{
 		std::vector<int> array1;
-		
+		std::cout <<"using vector container: "<<std::endl;
 		array1.push_back(1);
 		array1.push_back(99);
 		array1.push_back(7);
@@ -31,6 +31,7 @@ int main()
 		array1.push_back(9);
 
 		std::deque<int> array2;
+		std::cout <<"using deque container: "<<std::endl;
 		array2.push_back(18);
 		array2.push_back(1);
 		array2.push_back(5);

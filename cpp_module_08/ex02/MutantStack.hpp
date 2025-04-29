@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 00:13:09 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/26 18:53:55 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:13:08 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class MutantStack : public std::stack<T>
 {
 	public:
 		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 		
 		MutantStack() : std::stack<T>(){}
 		
@@ -45,6 +46,17 @@ class MutantStack : public std::stack<T>
 		{
 			return (this->c.end());
 		}
+
+		const_iterator begin() const
+		{
+			return (this->c.begin());
+		}
+
+		const_iterator end() const
+		{
+			return (this->c.end());
+		}
+
 
 };
 

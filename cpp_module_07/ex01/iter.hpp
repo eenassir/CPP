@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 00:51:01 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/23 09:50:38 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/27 23:13:08 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include <iostream>
 
 template<typename MyType>
-void function(MyType const &a)
+void function(MyType a)
 {
-	std::cout <<a<<" ";
+	std::cout <<a<< " ";
 }
 
 template<typename T>
-void iter(T *Array, int length, void (func)(T const &))
+void iter(T *Array, int length, void (&func)(T const&))
 {
 	int i = 0;
 

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:02:39 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/22 16:50:45 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/27 12:29:53 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ARRAY_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 template<typename T>
 class Array
