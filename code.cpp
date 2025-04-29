@@ -1,15 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 #include <algorithm>
-#include <stack>
+#include <cstdlib>
+#include <ctime>
 
-template<typename T>
-void iter()
-
+int get_values(int scal)
+{
+	return rand() % 10;
+}
 int main()
 {
+    // Seed once
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
+    std::vector<int> v(10000);
+    std::generate(v.begin(), v.end(), get_values);
+    return 0;
 }
+
+// template<typename T>
+// void iter()
+
+// int main()
+// {
+// }
 
 // class Awesome
 // {

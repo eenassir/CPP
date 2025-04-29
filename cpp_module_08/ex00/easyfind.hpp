@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:18:37 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/25 12:11:18 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:20:38 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void easyfind(T* element, int nbr)
 		return ;
 	}
 	else
-		throw std::exception();
+		throw std::logic_error("the nbr isn't found in the array");
 }
 
 #endif
