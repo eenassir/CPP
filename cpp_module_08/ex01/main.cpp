@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:27:24 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/29 14:34:21 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:13:06 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ int main()
 
 	try
 	{
-		Span numbers;
+		Span numbers(10000);
 		for (unsigned int i = 0; i < 10000; i++)
 		{
 			numbers.addNumber(i);
 		}
+		std::cout << numbers.shortestSpan() << std::endl;
+		std::cout << numbers.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -55,9 +57,15 @@ int main()
 
 	try
 	{
-		Span mem(10000);
+		Span mem(10);
+		std::vector<int> l;
+
+		l.push_back(1);
+		l.push_back(5);
+		l.push_back(6);
+		l.push_back(3);
 		
-		mem.addMultipleNbr();
+		mem.addMultipleNbr(l);
 
 		std::cout << mem.shortestSpan() << std::endl;
 		std::cout << mem.longestSpan() << std::endl;

@@ -63,6 +63,9 @@
 		"utility": "cpp",
 		"deque": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__tree": "cpp",
+		"list": "cpp",
+		"set": "cpp"
 	}
 }

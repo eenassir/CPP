@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:27:27 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/29 14:34:06 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:10:50 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,11 @@ unsigned int Span::longestSpan()
 	return (static_cast<unsigned int>(*maxNbr - *minNbr));
 }
 
-int getRand()
+void Span::addMultipleNbr(std::vector<int> &Vect)
 {
-	return (rand() % 100);
-}
+	std::vector<int>::iterator it;
 
-void Span::addMultipleNbr()
-{
-	std::vector<int> mem(max_size);
-	srand(static_cast<unsigned int>(time(NULL)));
-	std::generate(mem.begin(), mem.end(), getRand);
-	array.swap(mem);
+	it = Vect.begin();
+	for(; it != Vect.end(); ++it)
+		addNumber(*it);
 }

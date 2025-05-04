@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:27:29 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/29 14:33:22 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:06:49 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Span
 		void addNumber(int nbr);
 		unsigned int longestSpan();
 		unsigned int shortestSpan();
-		void addMultipleNbr();
+		void addMultipleNbr(std::vector<int> &Vect);
 };
 
 #endif

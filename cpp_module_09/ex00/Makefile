@@ -1,18 +1,18 @@
 NAME = btc
 
-SRC = main.cpp BitcoinExchanger.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
-OBJ =    $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC =     c++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-all:     $(NAME)
+all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp BitcoinExchanger.hpp
+%.o: %.cpp BitcoinExchange.hpp
 	$(CC) $(CFLAGS) -c $<
 
 clean:
