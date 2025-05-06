@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <map>
+#include <iomanip>
+#include <sstream>
+#include <fstream>
 
 int get_values(int scal)
 {
@@ -10,11 +14,27 @@ int get_values(int scal)
 }
 int main()
 {
-    // Seed once
-    std::srand(static_cast<unsigned int>(std::time(NULL)));
-    std::vector<int> v(10000);
-    std::generate(v.begin(), v.end(), get_values);
-    return 0;
+	std::ifstream infile("data.csv");
+	if (infile.fail())
+		return (1);
+	std::map<std::string, double> map;
+	std::string buffer;
+
+		double h = 2;
+	while (getline(infile, buffer))
+	{
+		int i = 0;
+		h++;
+		char tmp[11];
+		for(; buffer[i] && buffer[i] != ','; i++)
+		{
+			tmp[i] = buffer[i];
+		}
+		std::string tmp_buff = tmp;
+		map.insert(std::pair<std::string, double>(tmp_buff, h));
+		std::cout <<h<<" "<<tmp_buff<<std::endl;
+	}
+
 }
 
 // template<typename T>
