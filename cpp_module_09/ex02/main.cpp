@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <sstream>
+<<<<<<< HEAD
 #include <deque>
 #include <vector>
 
@@ -75,4 +76,12 @@ int main(int ac, char **av)
 		std::cout <<std::endl;
 	}
 	
+=======
+#include <vector>
+#include <deque>
+
+int main()
+{
+    
+>>>>>>> 84d8ae3c0ac766dc3bff892aaa87e841cb3d5e70
 }
