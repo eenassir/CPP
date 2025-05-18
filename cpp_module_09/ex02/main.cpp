@@ -6,13 +6,12 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 00:22:17 by eenassir          #+#    #+#             */
-/*   Updated: 2025/05/17 21:06:06 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:27:22 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <sstream>
-<<<<<<< HEAD
 #include <deque>
 #include <vector>
 
@@ -75,13 +74,4 @@ int main(int ac, char **av)
 		std::cout <<*it_v;
 		std::cout <<std::endl;
 	}
-	
-=======
-#include <vector>
-#include <deque>
-
-int main()
-{
-    
->>>>>>> 84d8ae3c0ac766dc3bff892aaa87e841cb3d5e70
 }
