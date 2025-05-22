@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-NAME = PmergeMe
-
-SRC = main.cpp
-=======
 NAME = PmergeMe 
 
-SRC = main.cpp PmergeMe.cpp 
->>>>>>> 84d8ae3c0ac766dc3bff892aaa87e841cb3d5e70
+SRC = main.cpp PmergeMe.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

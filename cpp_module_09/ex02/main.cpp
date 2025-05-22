@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 00:22:17 by eenassir          #+#    #+#             */
-/*   Updated: 2025/05/18 09:27:22 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:22:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,24 @@ int main(int ac, char **av)
 	std::deque<int>::iterator it_d;
 	std::vector<int>::iterator it_v;
 
-	it_d = cont_d.begin();
 	it_v = cont_v.begin();
-	for (; it_d != cont_d.end() && it_v != cont_v.end(); it_d++, it_v++)
+
+	std::vector< std::vector<int> > contt;
+
+	contt.push_back(cont_v);
+
+	std::vector< std::vector<int> >::iterator itt;
+
+	int tab[7] = {1, 2, 5, 3, 9, 7, 0};
+
+	int i = 0;
+	for (; i < 7 / 2; i++)
 	{
-		std::cout <<*it_d;
-		std::cout<<" ";
-		std::cout <<*it_v;
-		std::cout <<std::endl;
+		std::cout <<tab[i]<<std::endl;
+	}
+	std::cout <<"---------------"<<std::endl;
+	for (;i < 7; i++ )
+	{
+		std::cout <<tab[i]<<std::endl;
 	}
 }
