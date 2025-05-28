@@ -8,62 +8,36 @@
 #include <sstream>
 #include <fstream>
 
-void printarray(int *tab, int size)
-{
-	int i = 0;
-	std::cout << "----------------<>-----------" << std::endl;
-	for (; i < size / 4; i++)
-	{
-		std::cout << ">" << tab[i] << std::endl;
-	}
-	std::cout << "----------------<>-----------" << std::endl;
-}
-
-// void merge(int *tab, int size)
+// void insert_values(std::vector<int> & vect, std::vector<int> & k)
 // {
-// 	if (size / 4 <= 1)
-// 		return ;
-// 	int tmp1[size / 8];
-// 	int tmp2[size / 4 - size / 8];
-
-// 	int i = 0;
-// 	for (; i < size / 8; i++)
+// 	std::vector<int>::iterator it;
+// 	size_t size;
+//
+// 	it = k.begin();
+// 	for (; it != k.end(); it++)
 // 	{
-// 		tmp1[i] = tab[i];
+// 		if (vect.back() < *it)
+// 		{
+// 			vect.push_back(*it);
+// 		}
+// 		else
+// 		{
+// 			size = vect.size();
+// 			while (size > 0)
+// 			{
+// 				size = size / 2;
+// 				if (vect.at(size) > *it)
+// 				{
+// 					vect.insert((vect.begin() + size), *it);
+// 					break ;
+// 				}
+// 			}
+//
+// 		}
 // 	}
-// 	int j = 0;
-// 	for (; i < size / 4; i++)
-// 	{
-// 		tmp2[j] = tab[i];
-// 		j++;
-// 	}
-
-// 	printarray(tmp1, sizeof(tmp1));
-// 	printarray(tmp2, sizeof(tmp2));
-// 	merge(tmp1, sizeof(tmp1));
-// 	merge(tmp2, sizeof(tmp2));
 // }
 
-std::vector<int> merge(std::vector< std::vector<int> > l)
-{
-	if (l.size() <= -1)
-		return (*l.begin());
-	std::vector<int> tmp1;
-	std::vector<int> tmp2;
-	std::vector<int>::iterator it;
-
-	it = l.begin()->begin();
-	int i = 0;
-	for (; it != l.begin()->end();)
-	{
-		std::cout << *it << std::endl;
-		it++;
-		i++;
-	}
-	return (*l.begin());
-}
-
-int m(std::vector<int> &vect)
+void m(std::vector<int> &vect)
 {	
 	std::vector<int>::iterator it;
 	int i = 0;
@@ -71,38 +45,52 @@ int m(std::vector<int> &vect)
 	it--;
 
 	std::vector<int> k;
-	if (vect.size() == 1 || k.size() == 1)
-	{
-		if (*(vect.end() - 1) < m(vect))
-		vect.push_back(m(vect));
-	}
-	for (;it != vect.begin() &&  i < 7 / 2; it--, i++)
+
+
+	if (vect.size() <= 1)
+		return ;
+	size_t size = vect.size();
+	for (;it != vect.begin() && i < size / 2; it--, i++)
 	{
 		k.push_back(*it);
 		vect.pop_back();
 	}
-	// it = vect.begin();
-	// std::cout <<"------------------------"<<std::endl;
-	// for (;it != vect.end();it++)
-	// {
-	// 	std::cout<<*it<<std::endl;
-	// }
+	m(vect);
+	m(k);
+	it = k.end();
+	it--;
+	size = vect.size();
+	i = 0;
 
-
-	// it = k.begin();
-	// std::cout <<"-------------------------"<<std::endl;
-	// for (;it != k.end();it++)
-	// {
-	// 	std::cout<<*it<<std::endl;
-	// }
-	// std::cout <<"-------------------------"<<std::endl;
-	
-	return (*vect.begin());
+	for (; it != (k.begin() - 1); it--)
+	{
+		if (vect.back() < *it)
+			vect.push_back(*it);
+		else if (vect.at(0) > *it)
+		{
+			size = vect.size();
+			while (size > 0)
+			{
+				size = size / 2;
+				if (vect.at(size) > *it)
+				{
+					vect.insert((vect.begin() + size), *it);
+					break ;
+				}
+				else if (vect.at(size) < *it)
+				{
+					vect.insert((vect.begin() + size), *it);
+					break ;
+				}
+			}
+		}
+	}
 }
 
 int main(int ac, char **av)
 {
 	std::vector<int> vect;
+	// std::vector<int> k;
 
 	vect.push_back(2);
 	vect.push_back(11);
@@ -111,15 +99,22 @@ int main(int ac, char **av)
 	vect.push_back(0);
 	vect.push_back(4);
 	vect.push_back(21);
-
+	vect.push_back(99);
+	vect.push_back(88);
 	m(vect);
-
+	// معكم ولو بجلس علي الجمر عادي | أغنية الحلقة 29 | كش ملك
+	// vect.push_back(0);
+	// k.push_back(2);
+	// k.push_back(21);
+	// k.push_back(100);
+	// k.push_back(20);
+	// k.push_back(20);
+	// k.push_back(10);
 	std::vector<int>::iterator it;
 
 	it = vect.begin();
-	std::cout <<"------------------------"<<std::endl;
-	for (;it != vect.end();it++)
+	for (; it != vect.end(); it++)
 	{
-		std::cout<<*it<<std::endl;
+		std::cout <<*it<<std::endl;
 	}
 }
