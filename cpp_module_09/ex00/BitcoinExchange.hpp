@@ -14,5 +14,25 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <vector>
+#include <map>
+#include <list>
+#include <algorithm>
+
+class BitcoinExchange
+{
+    private:
+        BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange & other);
+        BitcoinExchange &operator=(const BitcoinExchange &other);
+        ~BitcoinExchange();
+    public:
+        static double parce_input(std::string &buffer);
+        static std::map<std::string, double> load_data(std::ifstream &infile);
+        static int Btc(int ac, char **av);
+};
 
 #endif

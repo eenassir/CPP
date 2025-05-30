@@ -14,7 +14,21 @@
 #define RPN_HPP
 
 #include <iostream>
+#include <algorithm>
+#include <list>
+#include <sstream>
+#include <iomanip>
 
-
+class RPN
+{
+    private:
+        RPN();
+        RPN(const RPN &other);
+        RPN &operator=(const RPN &other);
+        ~RPN();
+    public:
+        static void rpn(std::list<int> lst);
+        static int parce_input(char **av, std::list<int> &lst);
+};
 
 #endif

@@ -15,7 +15,7 @@ void display(std::vector<int> vect)
 	std::cout <<"------------------------------------------"<<std::endl;
 }
 
-void binary_search(std::vector<int> &vect, int nbr)
+void binary_insertion(std::vector<int> &vect, int nbr)
 {
 	size_t left, right, mid;
 
@@ -34,10 +34,19 @@ void binary_search(std::vector<int> &vect, int nbr)
 	}
 	vect.insert(vect.begin() + left, nbr);
 }
+
 void merge(std::vector<int> & vect)
 {
 	if (vect.size() <= 2)
 		return ;
+	int tmp;
+	bool odd = false;
+	if (vect.size() % 2 != 0)
+	{
+		odd = true;
+		tmp = vect.back();
+		vect.pop_back();
+	}
 	std::vector< std::vector<int> > collect;
 	std::vector<int>::iterator it;
 	size_t size = vect.size() / 2, i = 0;
@@ -79,27 +88,12 @@ void merge(std::vector<int> & vect)
 		main_chain[0] = main_chain[1];
 		main_chain[1] = tmp;
 	}
-	// display(main_chain);
 	it = pain_chain.begin();
 	for (; it != pain_chain.end(); it++)
-	{
-		binary_search(main_chain, *it);
-	}
-	// display(main_chain);
+		binary_insertion(main_chain, *it);
+	if (odd == 1)
+		binary_insertion(main_chain, tmp);
 	vect = main_chain;
-	i = 0;
-	for (; i <  vect.size(); i++)
-	{
-		for (int j = 0; j < i; j++)
-		{
-			if (vect[i] < vect[j])
-			{
-				int tmp = vect[j];
-				vect[j] = vect[i];
-				vect[i] = tmp;
-			}
-		}
-	}
 }
 
 
@@ -108,13 +102,13 @@ int main()
 	std::vector<int> vect;
 
 	vect.push_back(1);
-	vect.push_back(3);
+	vect.push_back(55);
 
 	vect.push_back(2);
 	vect.push_back(16);
 
 	vect.push_back(4);
-	vect.push_back(4);
+	vect.push_back(94);
 	
 	vect.push_back(41);
 
@@ -125,6 +119,5 @@ int main()
 
 
 	merge(vect);
-	// binary_search(vect, 5);
 	display(vect);
 }
