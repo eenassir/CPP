@@ -16,6 +16,7 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
+#include <stack>
 #include <sstream>
 #include <iomanip>
 
@@ -27,8 +28,8 @@ class RPN
         RPN &operator=(const RPN &other);
         ~RPN();
     public:
-        static void rpn(std::list<int> lst);
-        static int parce_input(char **av, std::list<int> &lst);
+        static int parce_input(std::string str, std::list<std::string> &strs);
+        static int rpn(std::list<std::string> &strs, std::stack<int> &holder);
 };
 
 #endif

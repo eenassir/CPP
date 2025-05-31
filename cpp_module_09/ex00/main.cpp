@@ -15,5 +15,12 @@
 
 int main(int argc, char **argv)
 {
-	BitcoinExchange::Btc(argc, argv);
+	if (argc != 2)
+	{
+		std::cout <<"Error: the nbr of args incorrect."<<std::endl;
+		return (1);
+	}
+	if (BitcoinExchange::Btc(argv[1]) == 1)
+		return (1);
+	return (0);
 }

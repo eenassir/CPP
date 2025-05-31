@@ -161,14 +161,9 @@ std::map<std::string, double> BitcoinExchange::load_data(std::ifstream &infile)
 	return (map);
 }
 
-int BitcoinExchange::Btc(int ac, char **av)
+int BitcoinExchange::Btc(char* av)
 {
-	if (ac != 2)
-	{
-		std::cout <<"Error: the nbr of args incorrect."<<std::endl;
-		return (1);
-	}
-	std::ifstream infile(av[1]);
+	std::ifstream infile(av);
 	if (infile.fail())
 	{
 		std::cout <<"Error: could not open file."<<std::endl;

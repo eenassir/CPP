@@ -11,19 +11,41 @@
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
-
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+#include <iomanip>
+#include <stack>
+#include <string>
+#include <list>
 
 int main(int ac, char **av)
 {
-	if (ac != 2)
-	{
-		std::cerr<<"Error"<<std::endl;
-		return(1);
-	}
-	std::list<int> lst;
-	if (RPN::parce_input(av, lst))
-		return(1);
-	RPN::rpn(lst);
+	std::list<std::string> strs;
+	std::stack<int> holder;
 
+    if (ac != 2)
+    {
+        std::cerr<<"Error"<<std::endl;
+        return (1);
+    }
+    std::string str = av[1];
+    if (!str.size())
+    {
+        std::cerr<<"Error"<<std::endl;
+        return (1);
+    }
+    if (RPN::parce_input(str, strs) == 1)
+		return (1);
+	if (RPN::rpn(strs, holder) == 1)
+		return (1);
+	
+    if (holder.size() != 1)
+    {
+        std::cerr<<"Error"<<std::endl;
+        return (1);
+    }
+	
+    std::cout <<holder.top()<<std::endl;
+    return (0);
 }

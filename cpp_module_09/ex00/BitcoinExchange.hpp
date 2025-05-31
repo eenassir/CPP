@@ -32,7 +32,7 @@ class BitcoinExchange
     public:
         static double parce_input(std::string &buffer);
         static std::map<std::string, double> load_data(std::ifstream &infile);
-        static int Btc(int ac, char **av);
+        static int Btc(char *av);
 };
 
 #endif

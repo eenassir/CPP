@@ -14,26 +14,24 @@
 #include <sstream>
 #include <deque>
 #include <vector>
+#include <ctime>
+#include <iomanip>
+#include <sys/time.h>
 
-// template<typename T>
-void g(std::vector<int> &list)
+template<typename T>
+void g(T &list)
 {
-	// typedef typename T::iterator iter;
-	// iter it = list.begin();
+	typedef typename T::iterator iter;
+	iter it = list.begin();
 
-	// for (; it != list.end(); it++)
-	// {
-	// 	std::cout <<*it<<std::endl;
-	// }
-	std::vector< std::vector<int> > l;
-	l.push_back(list);
-	std::cout << *l.begin()->begin();
-
-	// l.push_back(list);
-	// std::cout <<l.begin()->back();
+	for (; it != list.end(); it++)
+	{
+		std::cout <<*it<<" ";
+	}
 }
 
-void binary_insertion(std::vector<int> &vect, int nbr)
+template<typename T>
+void binary_insertion(T &vect, int nbr)
 {
 	size_t left, right, mid;
 
@@ -53,7 +51,9 @@ void binary_insertion(std::vector<int> &vect, int nbr)
 	vect.insert(vect.begin() + left, nbr);
 }
 
-void merge(std::vector<int> & vect)
+
+template<typename T>
+void merge(T & vect)
 {
 	if (vect.size() <= 2)
 		return ;
@@ -65,12 +65,13 @@ void merge(std::vector<int> & vect)
 		tmp = vect.back();
 		vect.pop_back();
 	}
-	std::vector< std::vector<int> > collect;
-	std::vector<int>::iterator it;
+	std::vector< T > collect;
+	typedef typename T::iterator itera;
+	itera it;
 	size_t size = vect.size() / 2, i = 0;
 	while (i < size)
 	{
-		std::vector<int> k;
+		T k;
 		k.push_back(vect.back());
 		vect.pop_back();
 		k.push_back(vect.back());
@@ -88,10 +89,11 @@ void merge(std::vector<int> & vect)
 			collect[i][1] = tmp;
 		}
 	}
-	std::vector<int> main_chain;
-	std::vector<int> pain_chain;
+	T main_chain;
+	T pain_chain;
 	i = 0;
-	std::vector< std::vector<int> >::iterator itt = collect.begin();
+	typedef typename  std::vector< T >::iterator itter;
+	itter itt = collect.begin();
 	for (; itt != collect.end(); itt++)
 	{
 		pain_chain.push_back(itt->back());
@@ -160,7 +162,19 @@ int main(int ac, char **av)
 		cont_d.push_back(nbr);
 		cont_v.push_back(nbr);
 	}
+	std::cout <<"Before : ", g(cont_v), std::cout<<std::endl;
+	timeval start, end;
+
+	gettimeofday(&start, NULL);
 	merge(cont_v);
-	g(cont_v);
-	// g(cont_d);
+	gettimeofday(&end, NULL);
+	double dur_us = (end.tv_sec - start.tv_sec) * 1e6 + (end.tv_usec - start.tv_usec);
+	std::cout <<"After : ", g(cont_v), std::cout<<std::endl;
+	std::cout <<"Time to process a range of "<<cont_v.size()<<" element with std::vector<int> : "<<std::fixed<<std::setprecision(5)<<dur_us<<"us"<<std::endl;
+
+	gettimeofday(&start, NULL);
+	merge(cont_d);
+	gettimeofday(&end, NULL);
+	dur_us = (end.tv_sec - start.tv_sec) * 1e6 + (end.tv_usec - start.tv_usec);
+	std::cout <<"Time to process a range of "<<cont_d.size()<<" element with std::deque<int> : "<<std::fixed<<std::setprecision(5)<<dur_us<<"us"<<std::endl;
 }
