@@ -31,7 +31,9 @@ int RPN::parce_input(std::string str, std::list<std::string> &strs)
     std::stringstream stream(str);
     std::string buffer;
     for (;stream >> buffer;)
+    {
         strs.push_back(buffer);
+    }
     if (strs.empty())
     {
         std::cerr<<"Error"<<std::endl;

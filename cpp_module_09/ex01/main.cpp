@@ -44,6 +44,6 @@ int main(int ac, char **av)
         std::cerr<<"Error"<<std::endl;
         return (1);
     }
-    std::cout <<"\033[1;31m"<<holder.top()<<"\033[0m"<<std::endl;
+    std::cout <<"\033[1;33mThe result : "<<holder.top()<<"\033[0m"<<std::endl;
     return (0);
 }
