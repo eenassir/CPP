@@ -177,7 +177,7 @@ int BitcoinExchange::Btc(char* av)
 	std::ifstream indata("data.csv");
 	if (indata.fail())
 	{
-		std::cout <<"Error : could not to open file";
+		std::cout <<"Error : could not to open file"<<std::endl;
 		return (1);
 	}
 	map = load_data(indata);
@@ -185,6 +185,11 @@ int BitcoinExchange::Btc(char* av)
 	while (std::getline(infile, buffer))
 	{
 		res = parce_input(buffer);
+		if (res == -1337)
+		{
+			std::cout <<"Error: the file not valid"<<std::endl;
+			return (1);
+		}
 		if (res != -1)
 		{
 			char tmp[11];
