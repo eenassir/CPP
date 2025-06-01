@@ -51,6 +51,58 @@ void binary_insertion(T &vect, int nbr)
 	vect.insert(vect.begin() + left, nbr);
 }
 
+std::vector<size_t> generate_jacobsthal_sequence(size_t n)
+{
+    std::vector<size_t> jacobsthal;
+    if (n == 0)
+        return (jacobsthal);
+    jacobsthal.push_back(1);
+    if (n == 1)
+        return (jacobsthal);
+    jacobsthal.push_back(3);
+    while (jacobsthal.back() < n)
+    {
+        size_t next = jacobsthal[jacobsthal.size() - 1] + 2 * jacobsthal[jacobsthal.size() - 2];
+        if (next > n)
+            break ;
+        jacobsthal.push_back(next);
+    }
+    return (jacobsthal);
+}
+
+std::vector<size_t> generate_insertion_order(size_t n)
+{
+    if (n == 0)
+        return (std::vector<size_t>());
+    std::vector<size_t> jacobsthal = generate_jacobsthal_sequence(n);
+    std::vector<size_t> insertion_order;
+    std::vector<bool> used(n + 1, false);
+
+    size_t prev = 1;
+    for (size_t i = 1; i < jacobsthal.size(); i++)
+    {
+        size_t current = jacobsthal[i];
+        if (current > n)
+            current = n;
+        for (size_t j = current; j > prev ; j--)
+        {
+            if (j <= n && !used[j])
+            {
+                insertion_order.push_back(j - 1);
+                used[j] = true;
+            }
+        }
+        prev = current;
+    }
+    for (size_t i = 1; i <= n; i++)
+    {
+        if (!used[i])
+            insertion_order.push_back(i - 1);
+
+    }
+    return (insertion_order);
+}
+
 
 template<typename T>
 void merge(T & vect)
@@ -108,9 +160,16 @@ void merge(T & vect)
 		main_chain[0] = main_chain[1];
 		main_chain[1] = tmp;
 	}
-	it = pain_chain.begin();
-	for (; it != pain_chain.end(); it++)
-		binary_insertion(main_chain, *it);
+	if (!pain_chain.empty())
+    {
+        std::vector<size_t> insertion_order = generate_insertion_order(pain_chain.size());
+        for (size_t j = 0; j < insertion_order.size(); j++)
+        {
+            size_t idx = insertion_order[j];
+            if (idx < pain_chain.size())
+                binary_insertion(main_chain, pain_chain[idx]);
+        }
+    }
 	if (odd == 1)
 		binary_insertion(main_chain, tmp);
 	vect = main_chain;
@@ -162,19 +221,31 @@ int main(int ac, char **av)
 		cont_d.push_back(nbr);
 		cont_v.push_back(nbr);
 	}
-	std::cout <<"Before : ", g(cont_v), std::cout<<std::endl;
+	for (size_t i = 0; i < cont_v.size(); i++)
+	{
+		size_t j = i + 1;
+		for (; j < cont_v.size(); j++)
+		{
+			if (cont_v[i] == cont_v[j])
+			{
+				std::cout <<"Error"<<std::endl;
+				return (1);
+			}
+		}
+	}
+	std::cout <<"\033[1;31mBefore : ", g(cont_v), std::cout<<"\033[0m"<<std::endl;
 	timeval start, end;
 
 	gettimeofday(&start, NULL);
 	merge(cont_v);
 	gettimeofday(&end, NULL);
 	double dur_us = (end.tv_sec - start.tv_sec) * 1e6 + (end.tv_usec - start.tv_usec);
-	std::cout <<"After : ", g(cont_v), std::cout<<std::endl;
-	std::cout <<"Time to process a range of "<<cont_v.size()<<" element with std::vector<int> : "<<std::fixed<<std::setprecision(5)<<dur_us<<"us"<<std::endl;
+	std::cout <<std::endl<<"\033[1;32m"<<"After : ", g(cont_v), std::cout<<"\033[0m"<<std::endl<<std::endl;
+	std::cout <<"\033[1;36mTime to process a range of "<<cont_v.size()<<" element with std::vector : "<<std::fixed<<std::setprecision(5)<<dur_us<<"us\033[0m"<<std::endl;
 
 	gettimeofday(&start, NULL);
 	merge(cont_d);
 	gettimeofday(&end, NULL);
 	dur_us = (end.tv_sec - start.tv_sec) * 1e6 + (end.tv_usec - start.tv_usec);
-	std::cout <<"Time to process a range of "<<cont_d.size()<<" element with std::deque<int> : "<<std::fixed<<std::setprecision(5)<<dur_us<<"us"<<std::endl;
+	std::cout <<"\033[1;33mTime to process a range of "<<cont_d.size()<<" element with std::deque : "<<std::fixed<<std::setprecision(5)<<dur_us<<"us\033[0m"<<std::endl;
 }

@@ -29,7 +29,7 @@ int main(int ac, char **av)
         std::cerr<<"Error"<<std::endl;
         return (1);
     }
-    std::string str = av[1];
+    std::string str= av[1];
     if (!str.size())
     {
         std::cerr<<"Error"<<std::endl;
@@ -39,13 +39,11 @@ int main(int ac, char **av)
 		return (1);
 	if (RPN::rpn(strs, holder) == 1)
 		return (1);
-	
     if (holder.size() != 1)
     {
         std::cerr<<"Error"<<std::endl;
         return (1);
     }
-	
-    std::cout <<holder.top()<<std::endl;
+    std::cout <<"\033[1;31m"<<holder.top()<<"\033[0m"<<std::endl;
     return (0);
 }
