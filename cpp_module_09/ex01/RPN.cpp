@@ -27,6 +27,11 @@ int RPN::parce_input(std::string str, std::list<std::string> &strs)
             std::cerr<<"Error"<<std::endl;
             return (1);
         }
+        if ((str[i] >= '0' && str[i] <= '9') && (str[i + 1] != ' '))
+        {
+            std::cout <<"Error"<<std::endl;
+            return (1);
+        }
     }
     std::stringstream stream(str);
     std::string buffer;

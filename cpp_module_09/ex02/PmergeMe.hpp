@@ -78,8 +78,20 @@ void PmergeMe::binary_insertion(T &vect, int nbr)
 template<typename T>
 void PmergeMe::merge(T & vect)
 {
-	if (vect.size() <= 2)
-	return ;
+	if (vect.size() == 2)
+	{
+		if (vect[0] > vect[1])
+		{
+			int tmp = vect[0];
+			vect[0] = vect[1];
+			vect[1] = tmp;
+		}
+		return ;
+	}
+	if (vect.size() < 2)
+	{
+		return ;
+	}
 	int tmp;
 	bool odd = false;
 	if (vect.size() % 2 != 0)
