@@ -19,7 +19,9 @@ int PmergeMe::parce_input(char **av, std::vector<int> &cont_v, std::deque<int> &
 	{
 		buffer.push_back(' ');
 		for(size_t j = 0; av[i][j]; j++)
+		{
 			buffer.push_back(av[i][j]);
+		}
 	}
 	for (size_t i = 0; i < buffer.size(); i++)
 	{
@@ -37,9 +39,11 @@ int PmergeMe::parce_input(char **av, std::vector<int> &cont_v, std::deque<int> &
 	for (size_t i = 0; i < buffer.size(); i++)
 	{
 		count = 0;
-		for (; buffer[i] && buffer[i] == ' '; i++){}
+		for (; buffer[i] && buffer[i] == ' '; i++)
+		{}
 		size_t s = i;
-		for(; buffer[s] && (buffer[s] >= '0' && buffer[s] <= '9'); s++, count++){}
+		for(; buffer[s] && (buffer[s] >= '0' && buffer[s] <= '9'); s++, count++)
+		{}
 		char buffer_tmp[count + 1];
 		size_t y = 0;
 		for (; buffer[i] && (buffer[i] >= '0' && buffer[i] <= '9'); i++, y++)
@@ -50,7 +54,7 @@ int PmergeMe::parce_input(char **av, std::vector<int> &cont_v, std::deque<int> &
 		tmp << ll;
 		tmp >> nbr;
 		if (tmp.fail())
-			return (std::cerr<<"Error"<<std::endl, 1);
+		return (std::cerr<<"Error"<<std::endl, 1);
 		cont_d.push_back(nbr);
 		cont_v.push_back(nbr);
 	}

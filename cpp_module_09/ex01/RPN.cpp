@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <climits>
 
 int RPN::parce_input(std::string str, std::list<std::string> &strs)
 {
@@ -92,16 +93,48 @@ int RPN::rpn(std::list<std::string> &strs, std::stack<int> &holder)
             int top_a = holder.top(); holder.pop();
             int res;
             if (tmp == "+")
+            {
+                if ((top_b > 0 && top_a > INT_MAX - top_b) || (top_b < 0 && top_a < INT_MIN - top_b))
+                {
+                    std::cout <<"Error"<<std::endl;
+                    return (1);
+                }
                 res = top_a + top_b;
+            }
             else if (tmp == "-")
+            {
+                if ((top_b < 0 && top_a > INT_MAX + top_b) && (top_b > 0 && top_a < INT_MIN + top_b))
+                {
+                    std::cout <<"Error"<<std::endl;
+                    return (1);
+                }
                 res = top_a - top_b;
+            }
             else if (tmp == "*")
+            {
+                if (top_a != 0 && top_b != 0)
+                {
+                    if ((top_a > 0 && top_b > 0 && top_a > INT_MAX / top_b) ||
+                        (top_a > 0 && top_b < 0 && top_b < INT_MIN / top_a) ||
+                        (top_a < 0 && top_b > 0 && top_a < INT_MIN / top_b) ||
+                        (top_a < 0 && top_b < 0 && top_a < INT_MAX / top_b))
+                    {
+                        std::cerr << "Error" << std::endl;
+                        return (1);
+                    }
+                }
                 res = top_a * top_b;
+            }
             else if (tmp == "/")
             {
                 if (top_b == 0)
                 {
                     std::cerr<<"Error"<<std::endl;
+                    return (1);
+                }
+                if (top_a == INT_MIN && top_b == -1)
+                {
+                    std::cerr << "Error" << std::endl;
                     return (1);
                 }
                 res = top_a / top_b;
