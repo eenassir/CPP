@@ -28,11 +28,6 @@ int RPN::parce_input(std::string str, std::list<std::string> &strs)
             std::cerr<<"Error"<<std::endl;
             return (1);
         }
-        if ((str[i] >= '0' && str[i] <= '9') && (str[i + 1] != ' '))
-        {
-            std::cout <<"Error"<<std::endl;
-            return (1);
-        }
     }
     std::stringstream stream(str);
     std::string buffer;
@@ -146,6 +141,11 @@ int RPN::rpn(std::list<std::string> &strs, std::stack<int> &holder)
             int num = 0;
             for (size_t j = 0; tmp[j]; j++)
                 num = num * 10 + tmp[j] - 48;
+            if (num >= 10)
+            {
+                std::cerr<<"Error"<<std::endl;
+                return (1);
+            }
             holder.push(num);
         }
     }
