@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 00:20:30 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/30 09:48:57 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/06/05 09:57:17 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ double BitcoinExchange::parce_input(std::string &buffer)
 	std::string d("0000");
 	std::stringstream kk;
 	int u;
-	if (buffer == "date | value")
-		return (-1);
 	if (!(buffer[i] >= '0' && buffer[i] <= '9'))
 	{
 		std::cout <<"Error: bad input => " + buffer<<std::endl;
@@ -104,6 +102,10 @@ double BitcoinExchange::parce_input(std::string &buffer)
 		}
 		i++;
 		std::stringstream tmp;
+		if (buffer[i] == '+')
+		{
+			i++;
+		}
 		for(;buffer[i]; i++)
 		{
 			if (buffer[i] == '.' && (buffer[i + 1] && buffer[i + 1] == '.'))
@@ -134,6 +136,17 @@ std::map<std::string, double> BitcoinExchange::load_data(std::ifstream &infile)
 {
 	std::map<std::string, double> map;
 	std::string buffer;
+	std::string buffer_i;
+
+	getline(infile, buffer_i);
+	if (buffer_i.size() == 0)
+	{
+		return (std::map<std::string, double>());
+	}
+	if (buffer_i != "date,exchange_rate")
+	{
+		return (std::map<std::string, double>());
+	}
 
 	while (getline(infile, buffer))
 	{
@@ -181,15 +194,27 @@ int BitcoinExchange::Btc(char* av)
 		return (1);
 	}
 	map = load_data(indata);
+	if (map.size() == 0)
+	{
+		std::cout <<"Error: invalid data file"<<std::endl;
+		return (1);
+	}
 	double res = -1;
+	std::string buffer_i;
+	std::getline(infile, buffer_i);
+	if (buffer_i.size() == 0)
+	{
+		std::cout <<"Error: empty file"<<std::endl;
+		return (1);
+	}
+	if (buffer_i != "date | value")
+	{
+		std::cout <<"Error: invalid file"<<std::endl;
+		return (1);
+	}
 	while (std::getline(infile, buffer))
 	{
 		res = parce_input(buffer);
-		if (res == -1337)
-		{
-			std::cout <<"Error: the file not valid"<<std::endl;
-			return (1);
-		}
 		if (res != -1)
 		{
 			char tmp[11];
