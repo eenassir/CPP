@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 09:46:24 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/30 09:46:25 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/06/11 21:30:15 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,6 @@ void PmergeMe::binary_insertion(T &vect, int nbr)
 template<typename T>
 void PmergeMe::merge(T & vect)
 {
-	if (vect.size() == 2)
-	{
-		if (vect[0] > vect[1])
-		{
-			int tmp = vect[0];
-			vect[0] = vect[1];
-			vect[1] = tmp;
-		}
-		return ;
-	}
 	if (vect.size() < 2)
 	{
 		return ;
@@ -137,12 +127,6 @@ void PmergeMe::merge(T & vect)
 		itt->pop_back();
 	}
 	merge(main_chain);
-	if (main_chain.size() == 2 && (main_chain[0] > main_chain[1]))
-	{
-		int tmp = main_chain[0];
-		main_chain[0] = main_chain[1];
-		main_chain[1] = tmp;
-	}
 	if (!pain_chain.empty())
 	{
 		std::vector<size_t> insertion_order = generate_insertion_order(pain_chain.size());
