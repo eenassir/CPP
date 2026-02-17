@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 02:00:48 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 02:23:02 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:11:20 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ std::string Brain::getIdea(int index) const
 
 void Brain::setIdea(int index, const std::string &idea)
 {
-	if (index >= 0 && index < 100)
-		this->ideas[index] = idea;
+	if (index >= 0 && index < 100 )
+		ideas[index] = idea;
 }
 

@@ -17,10 +17,12 @@
 #include "B.hpp"
 #include "C.hpp"
 #include "header.h"
+#include <exception>
+#include <stdexcept>
 
 Base * generate(void)
 {
-	std::srand(std::time(NULL));
+	std::srand(time(NULL));
 	int getRandomValue = rand() % 3;
 	switch (getRandomValue)
 	{
@@ -63,21 +65,21 @@ void identify(Base& p)
 		std::cout <<"A"<<std::endl;
 		return ;
 	}
-	catch(const std::bad_cast &){}
+	catch(const std::exception &){}
 	 
 	try{
 		(void)dynamic_cast<B&>(p);
 		std::cout <<"B"<<std::endl;
 		return ;
 	}
-	catch(const std::bad_cast&){}
+	catch(const std::exception &){}
 	
 	try{
 		(void)dynamic_cast<C&>(p);
 		std::cout <<"C"<<std::endl;
 		return ;
 	}
-	catch(const std::bad_cast&){}
+	catch(const std::exception &){}
 	
 	std::cout <<"Unknown type"<<std::endl;
 }

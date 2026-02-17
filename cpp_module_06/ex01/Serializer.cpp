@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include "Serializer.hpp"
+#include <stdint.h>
 
 Serializer::Serializer(){}
 

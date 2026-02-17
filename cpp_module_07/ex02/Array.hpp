@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:02:39 by eenassir          #+#    #+#             */
-/*   Updated: 2025/04/27 12:29:53 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/04/28 13:03:38 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ class Array
 		T &operator[](unsigned int index)
 		{
 			if (index >= _size)
-				throw std::exception();
+				throw std::out_of_range("index is out of bounds");
 			return (element[index]);
 		}
 
 		const T &operator[](unsigned int index) const
 		{
 			if (index >= _size)
-				throw std::exception();
+				throw std::out_of_range("index out of bounds");
 			return (element[index]);
 		}
 

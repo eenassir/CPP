@@ -19,7 +19,7 @@
 
 int main()
 {
-	Base *randomBase = NULL;
+	Base *randomBase = generate();
 	std::cout <<"identified by pointer : ";
 	identify(randomBase);
 

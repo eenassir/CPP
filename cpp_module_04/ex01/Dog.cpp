@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:01:18 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/16 00:56:41 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:14:53 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() : Animal()
 {
 	std::cout <<"The Dog_default constructor is called" <<std::endl;
-	this->ptr = NULL;
+	ptr = new Brain;
 	type = "Dog";
 }
 
